@@ -1,0 +1,2162 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Boutique de Rêve — Tenues traditionnelles algériennes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Cairo:wght@400;600;700&family=Amiri:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Boutique.css" />
+  </head>
+  <body>
+    <header class="site">
+      <div class="nav-row">
+        <a href="#/home" class="logo" data-nav
+          ><span data-i18n="brand_a">Boutique</span> <span class="dot">de</span>
+          <span data-i18n="brand_b">Rêve</span></a
+        >
+        <nav class="links" id="deskNav"></nav>
+        <div class="nav-actions">
+          <select class="lang-select" id="langSelect" aria-label="Langue">
+            <option value="fr">FR Français</option>
+            <option value="ar">AR العربية</option>
+            <option value="en">EN English</option>
+          </select>
+          <button class="icon-btn" id="searchToggle" aria-label="Recherche">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.6" y2="16.6" />
+            </svg>
+          </button>
+          <a href="#/wishlist" class="icon-btn" data-nav aria-label="Wishlist">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <path
+                d="M12 21s-7.5-4.6-10-9.1C.6 8.4 2.3 5 6 5c2.1 0 3.6 1.2 4.5 2.6C11.4 6.2 12.9 5 15 5c3.7 0 5.4 3.4 4 6.9C19.5 16.4 12 21 12 21z"
+              />
+            </svg>
+            <span class="badge" id="wishBadge" hidden>0</span>
+          </a>
+          <a href="#/cart" class="icon-btn" data-nav aria-label="Panier">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <path
+                d="M3 4h2l2.4 12.4A2 2 0 0 0 9.4 18H18a2 2 0 0 0 2-1.6L21 8H6"
+              />
+              <circle cx="10" cy="21" r="1" />
+              <circle cx="17" cy="21" r="1" />
+            </svg>
+            <span class="badge" id="cartBadge" hidden>0</span>
+          </a>
+          <button class="icon-btn" id="themeToggle" aria-label="Mode nuit">
+            🌙
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div
+        id="searchBar"
+        class="wrap"
+        style="display: none; padding-bottom: 14px"
+      >
+        <div class="searchbar">
+          <input type="text" id="quickSearch" placeholder="…" />
+          <button id="quickSearchGo">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.6" y2="16.6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileNav"></div>
+    </header>
+
+    <main id="app"></main>
+
+    <footer class="site">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <div class="foot-logo" data-i18n="brand_full">Boutique de Rêve</div>
+            <p
+              data-i18n="foot_desc"
+              style="max-width: 280px; font-size: 13.5px"
+            >
+              L'élégance du patrimoine algérien, entre vente et location de
+              tenues traditionnelles.
+            </p>
+            <div class="social-row">
+              <a href="#/contact" data-nav aria-label="Instagram"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.3" cy="6.7" r="1" /></svg
+              ></a>
+              <a href="#/contact" data-nav aria-label="Facebook"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                >
+                  <path
+                    d="M15 8h2V4h-2a4 4 0 0 0-4 4v2H9v4h2v6h4v-6h2.5L18 10h-3V8a1 1 0 0 1 1-1z"
+                  /></svg
+              ></a>
+              <a href="#/contact" data-nav aria-label="WhatsApp"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                >
+                  <path
+                    d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20l1.2-5.5a8.4 8.4 0 1 1 16.8-3z"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h5 data-i18n="foot_links">Liens rapides</h5>
+            <ul id="footLinks"></ul>
+          </div>
+          <div>
+            <h5 data-i18n="foot_cats">Catégories</h5>
+            <ul id="footCats"></ul>
+          </div>
+          <div>
+            <h5 data-i18n="foot_contact">Contact</h5>
+            <ul>
+              <li data-i18n="phone_val">+213 792 98 50 04</li>
+              <li>contact@boutiquedereve.dz</li>
+              <li data-i18n="foot_delivery">Livraison — toutes les wilayas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          © <span id="year"></span>
+          <span data-i18n="brand_full">Boutique de Rêve</span> —
+          <span data-i18n="foot_rights">Tous droits réservés</span>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/213792985004"
+      target="_blank"
+      rel="noopener"
+      class="wa-float"
+      aria-label="WhatsApp"
+    >
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.44a9.87 9.87 0 0 0 4.84 1.27h.01c5.46 0 9.9-4.45 9.9-9.92C21.96 6.45 17.51 2 12.05 2zm5.8 14.05c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.13-4.9-4.32-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.3.36-.42.49-.14.14-.29.29-.13.57.17.28.74 1.22 1.6 1.98 1.1.98 2.02 1.28 2.3 1.43.28.14.44.12.61-.07.16-.19.7-.82.89-1.1.19-.28.38-.23.63-.14.26.09 1.63.77 1.9.91.28.14.46.21.53.33.07.12.07.68-.17 1.35z"
+        />
+      </svg>
+    </a>
+
+    <div id="toast"></div>
+
+    <script>
+      const WILAYAS = [
+ ["Adrar","أدرار"],["Chlef","الشلف"],["Laghouat","الأغواط"],["Oum El Bouaghi","أم البواقي"],["Batna","باتنة"],
+ ["Béjaïa","بجاية"],["Biskra","بسكرة"],["Béchar","بشار"],["Blida","البليدة"],["Bouira","البويرة"],
+ ["Tamanrasset","تمنراست"],["Tébessa","تبسة"],["Tlemcen","تلمسان"],["Tiaret","تيارت"],["Tizi Ouzou","تيزي وزو"],
+ ["Alger","الجزائر"],["Djelfa","الجلفة"],["Jijel","جيجل"],["Sétif","سطيف"],["Saïda","سعيدة"],
+ ["Skikda","سكيكدة"],["Sidi Bel Abbès","سيدي بلعباس"],["Annaba","عنابة"],["Guelma","قالمة"],["Constantine","قسنطينة"],
+ ["Médéa","المدية"],["Mostaganem","مستغانم"],["M'Sila","المسيلة"],["Mascara","معسكر"],["Ouargla","ورقلة"],
+ ["Oran","وهران"],["El Bayadh","البيض"],["Illizi","إليزي"],["Bordj Bou Arréridj","برج بوعريريج"],["Boumerdès","بومرداس"],
+ ["El Tarf","الطارف"],["Tindouf","تندوف"],["Tissemsilt","تيسمسيلت"],["El Oued","الوادي"],["Khenchela","خنشلة"],
+ ["Souk Ahras","سوق أهراس"],["Tipaza","تيبازة"],["Mila","ميلة"],["Aïn Defla","عين الدفلى"],["Naâma","النعامة"],
+ ["Aïn Témouchent","عين تموشنت"],["Ghardaïa","غرداية"],["Relizane","غليزان"]
+];
+      const CATS = [
+        { id: "karakou", fr: "Karakou", ar: "كاراكو", en: "Karakou" },
+        { id: "bedroun", fr: "Bedroun", ar: "بدرون", en: "Bedroun" },
+        { id: "caftan", fr: "Caftan", ar: "قفطان", en: "Caftan" },
+        { id: "ghlila", fr: "Ghlila", ar: "غليلة", en: "Ghlila" },
+        { id: "kamisora", fr: "Kamisora", ar: "كاميزورة", en: "Kamisora" },
+        { id: "blouza",fr: "Blouza Oranaise",ar: "بلوزة وهرانية",en: "Oran Blouza",},
+        { id: "kabyle",fr: "Robe Kabyle",ar: "لباس قبائلي",en: "Kabyle Dress",},
+        { id: "chaouia",fr: "Robe Chaouia",ar: "لباس شاوي",en: "Chaoui Dress",},
+        { id: "naili", fr: "Robe Naïli", ar: "لباس نايلي", en: "Naili Dress" },
+        { id: "chedda",fr: "Chedda Tlemcenia",ar: "الشدة التلمسانية",en: "Tlemcen Chedda",},
+        { id: "staifi",fr: "Binoire Staifi",ar: "بينوير سطايفي",en: "Binoire Staifi",},
+        { id: "gandoura",fr: "Gandoura Constantinoise",ar: "القندورة القسنطينية",en: "Constantinan Gandoura",},
+      ];
+      const DEFAULT_PALETTE = ["#B7BEC6", "#4B4F55", "diamond"];
+      const PALETTES = {
+        karakou: ["#242427", "#B7BEC6", "diamond"],
+        bedroun: ["#F4F5F6", "#8A9198", "wave"],
+        caftan: ["#DCD2C3", "#4B4F55", "circle"],
+        ghlila: ["#6E1F2B", "#B7BEC6", "diamond"],
+        kamisora: ["#4B4F55", "#DCD2C3", "wave"],
+        blouza: ["#C9BBA6", "#34373C", "circle"],
+        kabyle: ["#6E1F2B", "#B7BEC6", "wave"],
+        chaouia: ["#34373C", "#8A9198", "diamond"],
+        naili: ["#8A9198", "#242427", "circle"],
+        chedda: ["#6E1F2B", "#DCD2C3", "diamond"],
+        staifi: ["#4B4F55", "#B7BEC6", "wave"],
+        gandoura: ["#242427", "#8A9198", "circle"]
+      };
+
+      function svgGarment(id, c1, c2, pattern) {
+        const p =
+          pattern === "diamond"
+            ? `<path d="M0 20 L20 0 L40 20 L20 40 Z" fill="none" stroke="${c2}" stroke-width="1" opacity=".5"/>`
+            : pattern === "wave"
+              ? `<path d="M0 20 Q10 5 20 20 T40 20" fill="none" stroke="${c2}" stroke-width="1" opacity=".5"/>`
+              : `<circle cx="20" cy="20" r="7" fill="none" stroke="${c2}" stroke-width="1" opacity=".5"/>`;
+        return `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="illustration tenue">
+    <defs>
+      <pattern id="pat${id}" width="40" height="40" patternUnits="userSpaceOnUse">${p}</pattern>
+      <linearGradient id="grad${id}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/>
+      </linearGradient>
+    </defs>
+    <rect width="300" height="400" fill="#F4F5F6"/>
+    <rect width="300" height="400" fill="url(#pat${id})"/>
+    <path d="M150 40 C120 40 108 70 108 95 C90 110 70 160 66 230 L60 360 C60 375 70 382 90 382 L210 382 C230 382 240 375 240 360 L234 230 C230 160 210 110 192 95 C192 70 180 40 150 40 Z"
+      fill="url(#grad${id})" stroke="${c2}" stroke-width="2"/>
+    <path d="M150 40 C136 40 128 55 128 70 L172 70 C172 55 164 40 150 40 Z" fill="${c2}" opacity=".85"/>
+    <path d="M108 95 L60 200" stroke="${c2}" stroke-width="2" fill="none" opacity=".6"/>
+    <path d="M192 95 L240 200" stroke="${c2}" stroke-width="2" fill="none" opacity=".6"/>
+    <line x1="90" y1="150" x2="210" y2="150" stroke="#9AA0A6" stroke-width="2" opacity=".7"/>
+    <line x1="80" y1="260" x2="220" y2="260" stroke="#9AA0A6" stroke-width="1.4" opacity=".55"/>
+    <circle cx="150" cy="110" r="5" fill="#9AA0A6"/>
+  </svg>`;
+      }
+
+      const CAT_PHOTOS = {
+        karakou: ["images/Karakou/karako-4.jpg"],
+        bedroun: ["images/Bedroun/bedroun-1.jpg"],
+        ghlila: ["images/Ghlila/ghlila-2.jpg"],
+        kamisora: ["images/Kamisora/kamisora-1.png"],
+        caftan: ["images/Caftan/caftan-1.jpeg"],
+        chaouia: ["images/Chaouia/chaoui-3.jpg"],
+        naili: ["images/Naili/naili-4.jpg"],
+        kabyle: ["images/Kabyle/kabyle-1.jpg"],
+        blouza: ["images/Blouza/blouza-2.jpeg"],
+        chedda: ["images/Chedda/chedda-1.jpg"],
+        staifi: ["images/Staifi/staifi-6.jpg"],
+        gandoura: ["images/Constantine/constantine-2.jpg"],
+      };
+
+      function img(cat) {
+        const p = PALETTES[cat] || DEFAULT_PALETTE;
+        return svgGarment(
+          cat + Math.random().toString(36).slice(2, 6),
+          p[0],
+          p[1],
+          p[2],
+        );
+      }
+      function imgFixed(cat, seed) {
+        const p = PALETTES[cat] || DEFAULT_PALETTE;
+        return svgGarment(cat + seed, p[0], p[1], p[2]);
+      }
+      function pimg(p, idx) {
+        if (p.photos && p.photos.length) {
+          return `<img src="${p.photos[idx % p.photos.length]}" alt="${tf(p.name)}" loading="lazy">`;
+        }
+        return imgFixed(p.cat, p.id + "-" + idx);
+      }
+
+      const PRODUCTS_SEED = [
+        {
+          id: "p1",
+          cat: "karakou",
+          region: { fr: "Alger", ar: "الجزائر", en: "Algiers" },
+          price: 45000,
+          rent: 8000,
+          sizes: ["S", "M", "L", "XL"],
+          color: { fr: "Noir & Or", ar: "أسود وذهبي", en: "Black & Gold" },
+          material: {
+            fr: "Velours brodé au fil d'or",
+            ar: "مخمل مطرز بخيط الذهب",
+            en: "Velvet embroidered with gold thread",},
+          stock: 4,
+          featured: true,
+          isNew: false,
+          rentable: true,
+          photos: [
+            "images/Karakou/karako-2.jpeg",
+            "images/Karakou/karako-4.jpg",
+            "images/Karakou/karako-1.jpg",
+            "images/Karakou/karako-3.jpg",
+            "images/Karakou/karako-5.jpg",
+          ],
+          name: {
+            fr: "Karakou Royal Or",
+            ar: "كاراكو رويال ذهبي",
+            en: "Royal Gold Karakou",
+          },
+          desc: {
+            fr: "Un karakou algérois d'exception, brodé main au fil d'or sur velours noir profond. Pièce d'apparat portée depuis des générations lors des grandes occasions.",
+            ar: "كاراكو جزائري استثنائي، مطرز يدويًا بخيط الذهب على مخمل أسود عميق. قطعة احتفالية تُرتدى منذ أجيال في المناسبات الكبرى.",
+            en: "An exceptional Algiers karakou, hand-embroidered in gold thread on deep black velvet. A ceremonial piece worn for generations at grand occasions.",
+          },
+        },
+        {
+          id: "p2",
+          cat: "karakou",
+          region: { fr: "Alger", ar: "الجزائر", en: "Algiers" },
+          price: 42000,
+          rent: 7500,
+          sizes: ["S", "M", "L"],
+          color: {
+            fr: "Émeraude & Or",
+            ar: "زمردي وذهبي",
+            en: "Emerald & Gold",
+          },
+          material: {
+            fr: "Velours brodé",
+            ar: "مخمل مطرز",
+            en: "Embroidered velvet",},
+          stock: 2,
+          featured: false,
+          isNew: false,
+          rentable: true,
+          photos: [
+            "images/Karakou/karako-6.jpg",
+            "images/Karakou/karako-7.jpg",
+          ],
+          name: {
+            fr: "Karakou Émeraude",
+            ar: "كاراكو زمردي",
+            en: "Emerald Karakou",
+          },
+          desc: {
+            fr: "Le vert profond rehaussé de broderies dorées, pour une allure à la fois royale et intemporelle.",
+            ar: "الأخضر العميق مزين بتطريز ذهبي، لإطلالة ملكية وخالدة في آن واحد.",
+            en: "Deep green enhanced with golden embroidery, for a look both regal and timeless.",
+          },
+        },
+        {
+          id: "p3",
+          cat: "caftan",
+          region: { fr: "Alger", ar: "الجزائر", en: "Algiers" },
+          price: 38000,
+          rent: 0,
+          sizes: ["M", "L", "XL"],
+          color: { fr: "Ivoire perlé", ar: "عاجي مرصّع", en: "Pearled ivory" },
+          material: {
+            fr: "Soie brodée de perles",
+            ar: "حرير مطرز باللؤلؤ",
+            en: "Silk embroidered with pearls",},
+          stock: 5,
+          featured: false,
+          isNew: true,
+          rentable: false,
+          photos: [
+            "images/Caftan/caftan-1.jpeg",
+            "images/Caftan/caftan-2.jpeg",
+            "images/Caftan/caftan-3.jpg",
+            "images/Caftan/caftan-4.jpg",
+            "images/Caftan/caftan-5.jpg",
+            "images/Caftan/caftan-6.jpg",
+          ],
+          name: {
+            fr: "Caftan Ivoire Perlé",
+            ar: "قفطان عاجي مرصّع",
+            en: "Pearled Ivory Caftan",
+          },
+          desc: {
+            fr: "Un caftan raffiné en soie ivoire, orné de perles cousues main pour un effet lumineux et délicat.",
+            ar: "قفطان أنيق من الحرير العاجي، مزين بلآلئ مخيطة يدويًا لإعطاء لمعان دقيق وساحر.",
+            en: "A refined ivory silk caftan, adorned with hand-sewn pearls for a delicate, luminous effect.",
+          },
+        },
+        {
+          id: "p4",
+          cat: "chedda",
+          region: { fr: "Tlemcen", ar: "تلمسان", en: "Tlemcen" },
+          price: 65000,
+          rent: 0,
+          sizes: ["M", "L"],
+          color: { fr: "Rouge & Or", ar: "أحمر وذهبي", en: "Red & Gold" },
+          material: {
+            fr: "Brocart de soie, fils d'or",
+            ar: "بروكار حريري، خيوط ذهبية",
+            en: "Silk brocade, gold thread",},
+          stock: 1,
+          featured: false,
+          isNew: false,
+          rentable: false,
+          photos: [
+            "images/Chedda/chedda-1.jpg",
+            "images/Chedda/chedda-2.jpg",
+            "images/Chedda/chedda-3.jpg",
+            "images/Chedda/chedda-4.jpg",
+          ],
+          name: {
+            fr: "Chedda Tlemcenia Dorée",
+            ar: "الشدة التلمسانية الذهبية",
+            en: "Golden Tlemcen Chedda",
+          },
+          desc: {
+            fr: "Costume de mariée emblématique de Tlemcen, classé patrimoine culturel immatériel de l'UNESCO. Un héritage précieux, pièce rare.",
+            ar: "زي عروس تلمسان الأيقوني، المصنف تراثًا ثقافيًا لا ماديًا لدى اليونسكو. إرث ثمين وقطعة نادرة.",
+            en: "The iconic bridal costume of Tlemcen, listed as UNESCO intangible cultural heritage. A precious, rare piece.",
+          },
+        },
+        {
+          id: "p5",
+          cat: "kabyle",
+          region: { fr: "Kabylie", ar: "القبائل", en: "Kabylia" },
+          price: 30000,
+          rent: 6000,
+          sizes: ["S", "M", "L", "XL"],
+          color: {
+            fr: "Rouge et blanc",
+            ar: "أحمر و أبيض",
+            en: "Red and white",
+          },
+          material: {
+            fr: "Coton fin, rubans de soie",
+            ar: "قطن رقيق، أشرطة حريرية",
+            en: "Fine cotton, silk ribbons",},
+          stock: 6,
+          featured: false,
+          isNew: true,
+          rentable: true,
+          name: {
+            fr: "Robe Kabyle Amazigh",
+            ar: "لباس قبائلي أمازيغي",
+            en: "Amazigh Kabyle Dress",
+          },
+          photos: [
+            "images/Kabyle/kabyle-4.jpg",
+            "images/Kabyle/kabyle-3.jpg",
+            "images/Kabyle/kabyle-1.jpg",
+            "images/Kabyle/kabyle-2.jpg",
+          ],
+          desc: {
+            fr: "Robe traditionnelle kabyle aux couleurs vives, rubans de soie et bijoux d'argent assortis disponibles.",
+            ar: "لباس قبائلي تقليدي بألوان زاهية، مع أشرطة حريرية ومجوهرات فضية متناسقة متوفرة.",
+            en: "Traditional Kabyle dress in vivid colours, with silk ribbons and matching silver jewellery available.",
+          },
+        },
+        {
+          id: "p6",
+          cat: "kabyle",
+          region: { fr: "Kabylie", ar: "القبائل", en: "Kabylia" },
+          price: 30000,
+          rent: 6000,
+          sizes: ["S", "M", "L", "XL"],
+          color: { fr: "Multicolore", ar: "متعدد الألوان", en: "Multicolour" },
+          material: {
+            fr: "Coton fin, rubans de soie",
+            ar: "قطن رقيق، أشرطة حريرية",
+            en: "Fine cotton, silk ribbons",},
+          stock: 4,
+          featured: true,
+          isNew: false,
+          rentable: false,
+          name: {
+            fr: "Robe Kabyle Traditionnelle",
+            ar: "لباس قبائلي تقليدي",
+            en: "Traditional Kabyle Dress",
+          },
+          photos: ["images/Kabyle/kabyle-5.jpg", "images/Kabyle/kabyle-6.jpg"],
+          desc: {
+            fr: "Robe traditionnelle kabyle aux couleurs vives, rubans de soie et bijoux d'argent assortis disponibles.",
+            ar: "لباس قبائلي تقليدي بألوان زاهية، مع أشرطة حريرية ومجوهرات فضية متناسقة متوفرة.",
+            en: "Traditional Kabyle dress in vivid colours, with silk ribbons and matching silver jewellery available.",},},
+        {
+          id: "p7",
+          cat: "naili",
+          region: { fr: "Djelfa", ar: "الجلفة", en: "Djelfa" },
+          price: 34000,
+          rent: 0,
+          sizes: ["M", "L"],
+          color: {
+            fr: "rose clair,Bleu-vert ",
+            ar: "وردي فاتح, أزرق-مخضر",
+            en: "Light pink,Light-green",
+          },
+          material: {
+            fr: "Laine et soie",
+            ar: "صوف وحرير",
+            en: "Wool and silk",},
+          stock: 3,
+          featured: false,
+          isNew: false,
+          rentable: false,
+          name: { fr: "Robe Naïli", ar: "لباس نايلي", en: "Naili Dress" },
+          photos: [
+            "images/Naili/naili-1.jpg",
+            "images/Naili/naili-2.jpg",
+            "images/Naili/naili-3.jpg",
+            "images/Naili/naili-4.jpg",
+          ],
+          desc: {
+            fr: "Tenue des hauts plateaux, portée avec fierté lors des fêtes de Bousaâda et Djelfa.",
+            ar: "زي الهضاب العليا، يُرتدى بفخر في احتفالات بوسعادة والجلفة.",
+            en: "An outfit from the high plateaus, worn with pride during the festivities of Bou Saâda and Djelfa.",
+          },
+        },
+        {
+          id: "p8",
+          cat: "chaouia",
+          region: { fr: "Aurès", ar: "الأوراس", en: "Aurès" },
+          price: 32000,
+          rent: 6500,
+          sizes: ["S", "M", "L"],
+          color: {
+            fr: "Vert clair, Noir",
+            ar: "أخضر فاتح، أسود",
+            en: "Light green, Black",
+          },
+          material: {
+            fr: "Laine tissée main",
+            ar: "صوف منسوج يدويًا",
+            en: "Hand-woven wool",},
+          stock: 6,
+          featured: true,
+          isNew: false,
+          rentable: true,
+          name: { fr: "Robe Chaouia", ar: "لباس شاوي", en: "Chaoui Dress" },
+          photos: [
+            "images/Chaouia/chaoui-1.jpg",
+            "images/Chaouia/chaoui-2.jpg",
+            "images/Chaouia/chaoui-3.jpg",
+          ],
+          desc: {
+            fr: "Tissage berbère authentique des Aurès, motifs géométriques rappelant les montagnes et l'artisanat local.",
+            ar: "نسيج أمازيغي أصيل من الأوراس، برسومات هندسية تذكر بالجبال والحرف المحلية.",
+            en: "Authentic Berber weaving from the Aurès, geometric motifs echoing the mountains and local craft.",
+          },
+        },
+        {
+          id: "p9",
+          cat: "blouza",
+          region: { fr: "Oran", ar: "وهران", en: "Oran" },
+          price: 28000,
+          rent: 0,
+          sizes: ["S", "M", "L", "XL"],
+          color: { fr: "Beige", ar: "بيج", en: "Beige" },
+          material: {
+            fr: "Satin brodé",
+            ar: "ساتان مطرز",
+            en: "Embroidered satin",},
+          stock: 5,
+          featured: false,
+          isNew: true,
+          rentable: false,
+          name: {
+            fr: "Blouza Oranaise",
+            ar: "بلوزة وهرانية",
+            en: "Oran Blouza",
+          },
+          photos: [
+            "images/Blouza/blouza-2.jpeg",
+            "images/Blouza/blouza-1.jpeg",
+            "images/Blouza/blouza-3.jpg",
+            "images/Blouza/blouza-4.jpg",
+            "images/Blouza/blouza-5.jpg",
+          ],
+          desc: {
+            fr: "Élégance méditerranéenne d'Oran, coupe fluide et broderies raffinées sur le satin.",
+            ar: "أناقة متوسطية وهرانية، قصة انسيابية وتطريز راقٍ على الساتان .",
+            en: "Mediterranean elegance from Oran, a fluid cut with refined embroidery on satin.",},
+        },
+        {
+          id: "p10",
+          cat: "bedroun",
+          region: { fr: "Alger", ar: "الجزائر", en: "Algiers" },
+          price: 26000,
+          rent: 0,
+          sizes: ["S", "M", "L"],
+          color: { fr: "Blanc & Or", ar: "أبيض وذهبي", en: "White & Gold" },
+          material: { fr: "Velours", ar: "مخمل", en: "Velvet" },
+          stock: 3,
+          featured: true,
+          isNew: false,
+          rentable: false,
+          name: {
+            fr: "Bedroun Algérois",
+            ar: "بدرون عاصيمي",
+            en: "Algiers Bedroun",
+          },
+          photos: [
+            "images/Bedroun/bedroun-1.jpg",
+            "images/Bedroun/bedroun-2.jpg",
+            "images/Bedroun/bedroun-3.jpg",
+            "images/Bedroun/bedroun-4.jpg",
+          ],
+          desc: {
+            fr: "Veste courte traditionnelle d'Alger, souvent assortie à une jupe ou un pantalon bouffant.",
+            ar: "سترة قصيرة تقليدية من الجزائر، غالبًا ما تُرتدى مع تنورة أو سروال منفوخ.",
+            en: "A short traditional jacket from Algiers, often paired with a skirt or a puffed trouser.", },
+        },
+        {
+          id: "p11",
+          cat: "ghlila",
+          region: { fr: "Alger", ar: "الجزائر", en: "Algiers" },
+          price: 24000,
+          rent: 5000,
+          sizes: ["M", "L", "XL"],
+          color: {
+            fr: "Rouge,Rose poudré",
+            ar: "وردي فاتح,أحمر",
+            en: "Dusty Pink,red",
+          },
+          material: {
+            fr: "Mousseline brodée",
+            ar: "شيفون مطرز",
+            en: "Embroidered chiffon",},
+          stock: 6,
+          featured: false,
+          isNew: false,
+          rentable: true,
+          name: {
+            fr: "Ghlila Brodée",
+            ar: "غليلة مطرزة",
+            en: "Embroidered Ghlila",},
+          photos: [
+            "images/Ghlila/ghlila-2.jpg",
+            "images/Ghlila/ghlila-3.jpg",
+            "images/Ghlila/ghlila-4.jpg",
+            "images/Ghlila/ghlila-5.jpg",
+          ],
+          desc: {
+            fr: "Légère et délicate, la ghlila accompagne le bedroun pour une silhouette gracieuse.",
+            ar: "خفيفة ورقيقة، تُرافق الغليلة البدرون لإطلالة رشيقة وأنيقة.",
+            en: "Light and delicate, the ghlila accompanies the bedroun for a graceful silhouette.",},
+        },
+        {
+          id: "p12",
+          cat: "kamisora",
+          region: { fr: "Alger", ar: "الجزائر", en: "Algiers" },
+          price: 27000,
+          rent: 0,
+          sizes: ["S", "M", "L"],
+          color: { fr: "Rouge,Bleu", ar: "أحمر،أزرق", en: "Red,Blue" },
+          material: {
+            fr: "Coton brodé",
+            ar: "قطن مطرز",
+            en: "Embroidered cotton",},
+          stock: 4,
+          featured: false,
+          isNew: true,
+          rentable: false,
+          name: {
+            fr: "Kamisora Traditionnelle",
+            ar: "كاميزورة تقليدية",
+            en: "Traditional Kamisora",},
+          photos: [
+            "images/Kamisora/kamisora-1.png",
+            "images/Kamisora/kamisora-2.jpg",
+            "images/Kamisora/kamisora-3.jpg",
+            "images/Kamisora/kamisora-4.jpg",
+          ],
+          desc: {
+            fr: "Chemise longue traditionnelle , finement brodée au col et aux poignets.",
+            ar: "قميص طويل تقليدي ، مطرز بدقة عند الياقة والأكمام.",
+            en: "A traditional long shirt , finely embroidered at the collar and cuffs.",},
+          },
+        {
+          id: "p13",
+          cat: "Staifi",
+          region: { fr: "Sétif", ar: "سطيف", en: "Setif" },
+          price: 42000,
+          rent: 7500,
+          sizes: ["S", "M", "L"],
+          color: {
+            fr: " Blanc&rouge, Blanc&vert",
+            ar: "أبيض وأحمر,أبيض و أخضر",
+            en: "White&Red White&Green",},
+          material: {
+            fr: "Catifa brodée",
+            ar: "قطيفة مطرزة",
+            en: "Embroidered catifa",},
+          stock: 5,
+          featured: false,
+          isNew: false,
+          rentable: true,
+          photos: [
+            "images/Staifi/staifi-1.jpg",
+            "images/Staifi/staifi-2.jpg",
+            "images/Staifi/staifi-3.jpg",
+            "images/Staifi/staifi-4.jpg",
+            "images/Staifi/staifi-6.jpg",
+          ],
+          name: {
+            fr: "Binoire Staifi",
+            ar: "بينوير سطايفي",
+            en: "Binoire Staifi",},
+          desc: {
+            fr: "Binoire traditionnel de Sétif, orné de broderies fines mettant en valeur le patrimoine local.",
+            ar: "بينوير تقليدي من سطيف، مزين بتطريز دقيق يبرز التراث المحلي.",
+            en: "Traditional Binoire from Setif, adorned with fine embroidery highlighting the local heritage.", },
+          },
+        {
+          id: "p14",
+          cat: "gandoura",
+          region: { fr: "Constantine", ar: "قسنطينة", en: "Constantine" },
+          price: 42000,
+          rent: 7500,
+          sizes: ["S", "M", "L"],
+          color: {
+            fr: "Bordeau,Noire",
+            ar: "عنابي,أسود",
+            en: "Burgundy,Black",},
+          material: {
+            fr: "Velours brodé",
+            ar: "مخمل مطرز",
+            en: "Embroidered velvet",},
+          stock: 5,
+          featured: false,
+          isNew: false,
+          rentable: true,
+          photos: [
+            "images/Constantine/constantine-1.jpg",
+            "images/Constantine/constantine-2.jpg",
+            "images/Constantine/constantine-3.jpg",
+            "images/Constantine/constantine-4.jpg",
+            "images/Constantine/constantine-5.jpg",
+            ],
+          name: {
+            fr: "Gandoura Constantinoise",
+            ar: "القندورة القسنطينية",
+            en: "Constantinan Gandoura",},
+          desc: {
+            fr: "Robe traditionnelle de Constantine, ornée de broderies fines mettant en valeur le patrimoine local.",
+            ar: "فستان تقليدي من قسنطينة، مزين بتطريز دقيق يبرز التراث المحلي.",
+            en: "Traditional dress from Constantine, adorned with fine embroidery highlighting the local heritage.", },
+        },
+      ];
+      PRODUCTS_SEED.forEach((p) => {
+        if (!p.photos && CAT_PHOTOS[p.cat]) p.photos = CAT_PHOTOS[p.cat];
+      });
+      const REVIEWS_SEED = [
+        {
+          name: "Amina B.",
+          rating: 5,
+          comment: {
+            fr: "Le karakou est encore plus magnifique en vrai, la broderie est impeccable. Livraison rapide sur Alger.",
+            ar: "الكاراكو أجمل بكثير في الواقع، التطريز لا تشوبه شائبة. توصيل سريع إلى الجزائر.",
+            en: "The karakou is even more beautiful in person, flawless embroidery. Fast delivery to Algiers.",
+          },
+        },
+        {
+          name: "Sarah K.",
+          rating: 5,
+          comment: {
+            fr: "J'ai loué une Chedda pour le mariage de ma sœur, un service parfait du début à la fin.",
+            ar: "استأجرت شدة لحفل زفاف أختي، خدمة مثالية من البداية إلى النهاية.",
+            en: "I rented a Chedda for my sister's wedding, a perfect service from start to finish.",
+          },
+        },
+        {
+          name: "Nour E.",
+          rating: 4,
+          comment: {
+            fr: "Très belle robe kabyle, couleurs fidèles aux photos. Un délai de livraison un peu long.",
+            ar: "لباس قبائلي جميل جدًا، الألوان مطابقة للصور. مدة التوصيل كانت طويلة نوعًا ما.",
+            en: "Beautiful Kabyle dress, colours true to the photos. Delivery took a bit long.",
+          },
+        },
+      ];
+      const WHATSAPP = "213792985004";
+
+      /* ============================= I18N ============================= */
+      
+     const I18N = {
+ fr:{
+  brand_a:"Boutique", brand_b:"Rêve", brand_full:"Boutique de Rêve",
+  nav_home:"Accueil", nav_shop:"Boutique", nav_cats:"Catégories", nav_about:"À propos", nav_contact:"Contact",
+  hero_title:"L'élégance de nos traditions", hero_sub:"Découvrez notre collection de tenues traditionnelles algériennes, entre héritage, élégance et modernité.", hero_cta:"Découvrir la collection",
+  cats_title:"Catégories populaires", cats_sub:"Dix traditions vestimentaires, une seule adresse.",
+  new_title:"Nouveautés", new_sub:"Les dernières pièces arrivées en boutique.",
+  feat_title:"Collection en vedette", feat_sub:"Nos pièces les plus recherchées, sélectionnées avec soin.",
+  heritage_title:"Un patrimoine, une histoire", heritage_text:"Chaque tenue de notre collection représente une région, une histoire et un savoir-faire transmis de génération en génération. En portant une pièce de Boutique de Rêve, vous portez un fragment vivant du patrimoine algérien.",
+  reviews_title:"Elles nous font confiance", reviews_sub:"Avis vérifiés de nos clientes.",
+  see_details:"Voir détails", add_cart:"Ajouter au panier", buy_now:"Acheter maintenant", ask_info:"Demander plus d'informations",
+  rental_available:"Location disponible", in_stock:"En stock", out_of_stock:"Rupture de stock", low_stock:"Stock limité",
+  from:"Dès", rent_from:"Location dès", region_label:"Région", size_label:"Taille", color_label:"Couleur", material_label:"Matière",
+  qty_label:"Quantité", you_may_like:"Vous aimerez peut-être aussi",
+  shop_title:"La Boutique", shop_sub:"Parcourez l'ensemble de nos tenues traditionnelles.",
+  search_ph:"Rechercher une tenue…", filters:"Filtres", filter_cat:"Catégorie", filter_region:"Région", filter_size:"Taille",
+  filter_price:"Prix (DA)", filter_avail:"Disponibilité", filter_type:"Vente / Location", reset_filters:"Réinitialiser",
+  sale:"Vente", rental:"Location", results_count:"résultat(s)", no_results:"Aucune tenue ne correspond à votre recherche.",
+  cart_title:"Panier", cart_sub:"Vérifiez votre sélection avant de commander.", cart_empty:"Votre panier est vide.",
+  continue_shopping:"Continuer les achats", checkout:"Passer la commande", subtotal:"Sous-total", delivery:"Frais de livraison",
+  total:"Total", free_over:"Offerte pour toute commande dès 30 000 DA",
+  checkout_title:"Finaliser la commande", checkout_sub:"Remplissez vos informations de livraison.",
+  first_name:"Prénom", last_name:"Nom", phone:"Téléphone", email:"Email", wilaya:"Wilaya", commune:"Commune", address:"Adresse complète",
+  delivery_mode:"Mode de livraison", home_delivery:"Livraison à domicile", office_delivery:"Point de retrait / Stopdesk",
+  payment_mode:"Mode de paiement", cod:"Paiement à la livraison", soon:"bientôt disponible", place_order:"Confirmer la commande",
+  order_confirmed:"Commande confirmée !", order_confirmed_sub:"Merci pour votre confiance. Nous vous contacterons rapidement pour confirmer la livraison.",
+  order_number:"Numéro de commande", back_home:"Retour à l'accueil",
+  wishlist_title:"Mes Favoris", wishlist_sub:"Les tenues que vous avez aimées.", wishlist_empty:"Votre liste de favoris est vide.",
+  about_title:"À propos de nous", about_sub:"Notre histoire, notre passion.",
+  about_p1:"Boutique de Rêve est née d'une passion profonde pour le patrimoine vestimentaire algérien. Depuis nos débuts, nous parcourons les régions d'Algérie à la rencontre d'artisanes et de couturières qui perpétuent des savoir-faire ancestraux.",
+  about_p2:"Notre mission est simple : rendre accessible, à la vente comme à la location, des tenues traditionnelles d'exception — du Karakou algérois à la Chedda tlemcenienne, en passant par la robe kabyle et le costume chaoui — tout en préservant leur authenticité.",
+  about_p3:"Chaque pièce raconte une histoire. En choisissant Boutique de Rêve, vous participez à la transmission et à la valorisation d'un patrimoine vivant.",
+  contact_title:"Contactez-nous", contact_sub:"Une question, une demande sur-mesure ? Nous sommes à votre écoute.",
+  phone_val:"+213 792 98 50 04", address_val:"Alger, Algérie", form_name:"Nom complet", form_message:"Votre message", form_send:"Envoyer le message",
+  form_sent:"Message envoyé ! Nous vous répondrons rapidement.",
+  delivery_note:"Livraison disponible dans toutes les wilayas d'Algérie.",
+  foot_desc:"L'élégance du patrimoine algérien, entre vente et location de tenues traditionnelles.",
+  foot_links:"Liens rapides", foot_cats:"Catégories", foot_contact:"Contact", foot_delivery:"Livraison — toutes les wilayas", foot_rights:"Tous droits réservés",
+  toast_added:"Ajouté au panier", toast_wish_add:"Ajouté aux favoris", toast_wish_remove:"Retiré des favoris", toast_removed:"Article retiré",
+  admin_title:"Espace Administrateur", admin_password:"Mot de passe", admin_enter:"Accéder", admin_wrong:"Mot de passe incorrect",
+  admin_products:"Produits", admin_orders:"Commandes", admin_reviews:"Avis", admin_categories:"Catégories",
+  admin_add_product:"Ajouter une tenue", admin_name:"Nom", admin_price:"Prix", admin_rent:"Prix location", admin_stock:"Stock",
+  admin_save:"Enregistrer", admin_cancel:"Annuler", admin_edit:"Modifier", admin_delete:"Supprimer", admin_status:"Statut",
+  admin_customer:"Cliente", admin_date:"Date", admin_no_orders:"Aucune commande pour le moment.", admin_reset:"Réinitialiser les données",
+  admin_new_cat:"Nouvelle catégorie", admin_add:"Ajouter", admin_featured:"Vedette", admin_newtag:"Nouveauté",
+  status_new:"Nouvelle", status_confirmed:"Confirmée", status_prep:"Préparation", status_shipped:"Expédiée", status_delivered:"Livrée",
+  gallery_view:"Vue",
+ },
+ en:{
+  brand_a:"Boutique", brand_b:"de Rêve", brand_full:"Boutique de Rêve",
+  nav_home:"Home", nav_shop:"Shop", nav_cats:"Categories", nav_about:"About", nav_contact:"Contact",
+  hero_title:"The elegance of our traditions", hero_sub:"Discover our collection of traditional Algerian garments, where heritage, elegance and modernity meet.", hero_cta:"Discover the collection",
+  cats_title:"Popular categories", cats_sub:"Ten dress traditions, one address.",
+  new_title:"New arrivals", new_sub:"The latest pieces to join the boutique.",
+  feat_title:"Featured collection", feat_sub:"Our most sought-after pieces, carefully selected.",
+  heritage_title:"A heritage, a story", heritage_text:"Every garment in our collection represents a region, a story and a craft passed down through generations. Wearing a Boutique de Rêve piece means wearing a living fragment of Algerian heritage.",
+  reviews_title:"Trusted by our customers", reviews_sub:"Verified reviews from our clients.",
+  see_details:"View details", add_cart:"Add to cart", buy_now:"Buy now", ask_info:"Ask for more information",
+  rental_available:"Rental available", in_stock:"In stock", out_of_stock:"Out of stock", low_stock:"Limited stock",
+  from:"From", rent_from:"Rental from", region_label:"Region", size_label:"Size", color_label:"Colour", material_label:"Material",
+  qty_label:"Quantity", you_may_like:"You may also like",
+  shop_title:"The Shop", shop_sub:"Browse our full collection of traditional garments.",
+  search_ph:"Search a garment…", filters:"Filters", filter_cat:"Category", filter_region:"Region", filter_size:"Size",
+  filter_price:"Price (DZD)", filter_avail:"Availability", filter_type:"Sale / Rental", reset_filters:"Reset",
+  sale:"Sale", rental:"Rental", results_count:"result(s)", no_results:"No garment matches your search.",
+  cart_title:"Cart", cart_sub:"Review your selection before ordering.", cart_empty:"Your cart is empty.",
+  continue_shopping:"Continue shopping", checkout:"Checkout", subtotal:"Subtotal", delivery:"Delivery fee",
+  total:"Total", free_over:"Free for orders over 30,000 DA",
+  checkout_title:"Complete your order", checkout_sub:"Fill in your delivery information.",
+  first_name:"First name", last_name:"Last name", phone:"Phone", email:"Email", wilaya:"Wilaya", commune:"Commune", address:"Full address",
+  delivery_mode:"Delivery mode", home_delivery:"Home delivery", office_delivery:"Pickup point / Stopdesk",
+  payment_mode:"Payment mode", cod:"Cash on delivery", soon:"coming soon", place_order:"Confirm order",
+  order_confirmed:"Order confirmed!", order_confirmed_sub:"Thank you for your trust. We'll contact you shortly to confirm delivery.",
+  order_number:"Order number", back_home:"Back to home",
+  wishlist_title:"My Wishlist", wishlist_sub:"The garments you've loved.", wishlist_empty:"Your wishlist is empty.",
+  about_title:"About us", about_sub:"Our story, our passion.",
+  about_p1:"Boutique de Rêve was born from a deep passion for Algerian dress heritage. From the start, we've travelled across Algeria's regions to meet artisans and seamstresses who keep ancestral know-how alive.",
+  about_p2:"Our mission is simple: make exceptional traditional garments — from the Algiers Karakou to the Tlemcen Chedda, the Kabyle dress and the Chaoui costume — accessible for sale and rental, while preserving their authenticity.",
+  about_p3:"Every piece tells a story. By choosing Boutique de Rêve, you take part in passing on and celebrating a living heritage.",
+  contact_title:"Contact us", contact_sub:"A question, a custom request? We're listening.",
+  phone_val:"+213 792 98 50 04", address_val:"Algiers, Algeria", form_name:"Full name", form_message:"Your message", form_send:"Send message",
+  form_sent:"Message sent! We'll get back to you shortly.",
+  delivery_note:"Delivery available to every wilaya in Algeria.",
+  foot_desc:"The elegance of Algerian heritage, sale and rental of traditional garments.",
+  foot_links:"Quick links", foot_cats:"Categories", foot_contact:"Contact", foot_delivery:"Delivery — every wilaya", foot_rights:"All rights reserved",
+  toast_added:"Added to cart", toast_wish_add:"Added to wishlist", toast_wish_remove:"Removed from wishlist", toast_removed:"Item removed",
+  admin_title:"Admin Space", admin_password:"Password", admin_enter:"Enter", admin_wrong:"Incorrect password",
+  admin_products:"Products", admin_orders:"Orders", admin_reviews:"Reviews", admin_categories:"Categories",
+  admin_add_product:"Add a garment", admin_name:"Name", admin_price:"Price", admin_rent:"Rental price", admin_stock:"Stock",
+  admin_save:"Save", admin_cancel:"Cancel", admin_edit:"Edit", admin_delete:"Delete", admin_status:"Status",
+  admin_customer:"Customer", admin_date:"Date", admin_no_orders:"No orders yet.", admin_reset:"Reset data",
+  admin_new_cat:"New category", admin_add:"Add", admin_featured:"Featured", admin_newtag:"New",
+  status_new:"New", status_confirmed:"Confirmed", status_prep:"Preparing", status_shipped:"Shipped", status_delivered:"Delivered",
+  gallery_view:"View",
+ },
+ ar:{
+  brand_a:"بوتيك", brand_b:"الاحلام", brand_full:"Boutique de Rêve",
+  nav_home:"الرئيسية", nav_shop:"المتجر", nav_cats:"الفئات", nav_about:"من نحن", nav_contact:"اتصل بنا",
+  hero_title:"أناقة تقاليدنا", hero_sub:"اكتشفي مجموعتنا من الأزياء الجزائرية التقليدية، بين التراث والأناقة والحداثة.", hero_cta:"اكتشاف المجموعة",
+  cats_title:"الفئات الأكثر رواجًا", cats_sub:"عشرة تقاليد في اللباس، عنوان واحد.",
+  new_title:"وصل حديثًا", new_sub:"أحدث القطع في المتجر.",
+  feat_title:"مجموعة مختارة", feat_sub:"أكثر قطعنا طلبًا، مختارة بعناية.",
+  heritage_title:"تراث وقصة", heritage_text:"كل قطعة في مجموعتنا تمثل منطقة، وقصة، وحرفة متوارثة عبر الأجيال. عندما ترتدين قطعة من Boutique de Rêve، فأنتِ ترتدين جزءًا حيًا من التراث الجزائري.",
+  reviews_title:"يثقن بنا", reviews_sub:"آراء موثقة من عميلاتنا.",
+  see_details:"عرض التفاصيل", add_cart:"أضف إلى السلة", buy_now:"اشترِ الآن", ask_info:"اطلب مزيدًا من المعلومات",
+  rental_available:"الكراء متاح", in_stock:"متوفر", out_of_stock:"غير متوفر", low_stock:"كمية محدودة",
+  from:"ابتداءً من", rent_from:"كراء ابتداءً من", region_label:"المنطقة", size_label:"المقاس", color_label:"اللون", material_label:"الخامة",
+  qty_label:"الكمية", you_may_like:"قد يعجبك أيضًا",
+  shop_title:"المتجر", shop_sub:"تصفحي جميع أزيائنا التقليدية.",
+  search_ph:"ابحثي عن زي…", filters:"التصفية", filter_cat:"الفئة", filter_region:"المنطقة", filter_size:"المقاس",
+  filter_price:"السعر (دج)", filter_avail:"التوفر", filter_type:"بيع / كراء", reset_filters:"إعادة تعيين",
+  sale:"بيع", rental:"كراء", results_count:"نتيجة", no_results:"لا يوجد زي يطابق بحثك.",
+  cart_title:"السلة", cart_sub:"تحققي من اختيارك قبل إتمام الطلب.", cart_empty:"سلتك فارغة.",
+  continue_shopping:"مواصلة التسوق", checkout:"إتمام الطلب", subtotal:"المجموع الفرعي", delivery:"رسوم التوصيل",
+  total:"المجموع", free_over:"مجانًا للطلبات التي تفوق 30,000 دج",
+  checkout_title:"إتمام الطلب", checkout_sub:"املئي معلومات التوصيل الخاصة بك.",
+  first_name:"الاسم", last_name:"اللقب", phone:"الهاتف", email:"البريد الإلكتروني", wilaya:"الولاية", commune:"البلدية", address:"العنوان الكامل",
+  delivery_mode:"طريقة التوصيل", home_delivery:"التوصيل إلى المنزل", office_delivery:"نقطة استلام",
+  payment_mode:"طريقة الدفع", cod:"الدفع عند الاستلام", soon:"قريبًا", place_order:"تأكيد الطلب",
+  order_confirmed:"تم تأكيد الطلب!", order_confirmed_sub:"شكرًا لثقتك. سنتواصل معك قريبًا لتأكيد التوصيل.",
+  order_number:"رقم الطلب", back_home:"العودة إلى الرئيسية",
+  wishlist_title:"المفضلة", wishlist_sub:"القطع التي أعجبتك.", wishlist_empty:"قائمة مفضلتك فارغة.",
+  about_title:"من نحن", about_sub:"قصتنا، شغفنا.",
+  about_p1:"وُلد Boutique de Rêve من شغف عميق بالتراث اللباسي الجزائري. منذ البداية، جُبنا مناطق الجزائر للقاء حرفيات وخياطات يحافظن على معارف الأجداد.",
+  about_p2:"مهمتنا بسيطة: إتاحة أزياء تقليدية استثنائية للبيع والكراء — من الكاراكو الجزائري إلى الشدة التلمسانية، مرورًا باللباس القبائلي والزي الشاوي — مع الحفاظ على أصالتها.",
+  about_p3:"كل قطعة تحكي قصة. باختيارك Boutique de Rêve، تشاركين في نقل وتثمين تراث حي.",
+  contact_title:"اتصلي بنا", contact_sub:"سؤال أو طلب خاص؟ نحن نصغي إليك.",
+  phone_val:"+213 792 98 50 04", address_val:"الجزائر العاصمة، الجزائر", form_name:"الاسم الكامل", form_message:"رسالتك", form_send:"إرسال الرسالة",
+  form_sent:"تم إرسال الرسالة! سنرد عليك قريبًا.",
+  delivery_note:"التوصيل متاح إلى جميع ولايات الجزائر.",
+  foot_desc:"أناقة التراث الجزائري، بيع وكراء الأزياء التقليدية.",
+  foot_links:"روابط سريعة", foot_cats:"الفئات", foot_contact:"اتصل بنا", foot_delivery:"التوصيل — جميع الولايات", foot_rights:"جميع الحقوق محفوظة",
+  toast_added:"أُضيف إلى السلة", toast_wish_add:"أُضيف إلى المفضلة", toast_wish_remove:"أُزيل من المفضلة", toast_removed:"تمت إزالة العنصر",
+  admin_title:"فضاء الإدارة", admin_password:"كلمة المرور", admin_enter:"دخول", admin_wrong:"كلمة مرور غير صحيحة",
+  admin_products:"المنتجات", admin_orders:"الطلبات", admin_reviews:"الآراء", admin_categories:"الفئات",
+  admin_add_product:"إضافة زي", admin_name:"الاسم", admin_price:"السعر", admin_rent:"سعر الكراء", admin_stock:"المخزون",
+  admin_save:"حفظ", admin_cancel:"إلغاء", admin_edit:"تعديل", admin_delete:"حذف", admin_status:"الحالة",
+  admin_customer:"الزبونة", admin_date:"التاريخ", admin_no_orders:"لا توجد طلبات بعد.", admin_reset:"إعادة تعيين البيانات",
+  admin_new_cat:"فئة جديدة", admin_add:"إضافة", admin_featured:"مميز", admin_newtag:"جديد",
+  status_new:"جديدة", status_confirmed:"مؤكدة", status_prep:"قيد التحضير", status_shipped:"تم الشحن", status_delivered:"تم التسليم",
+  gallery_view:"عرض",
+ }
+      };
+      function t(k) {
+        return (I18N[state.lang] && I18N[state.lang][k]) || I18N.fr[k] || k;
+      }
+      function tf(fld) {
+        return fld ? fld[state.lang] || fld.fr : "";
+      }
+      function money(n) {
+        return (
+          n.toLocaleString(state.lang === "ar" ? "ar-DZ" : "fr-DZ") +
+          " " +
+          (state.lang === "en" ? "DZD" : "DA")
+        );
+      }
+
+      /* ============================= STATE / STORE ============================= */
+      const LS = {
+        get(k, d) {
+          try {
+            const v = localStorage.getItem(k);
+            return v ? JSON.parse(v) : d;
+          } catch (e) {
+            return d;
+          }
+        },
+        set(k, v) {
+          try {
+            localStorage.setItem(k, JSON.stringify(v));
+          } catch (e) {}
+        },
+      };
+      let state = {
+        lang: LS.get("bdr_lang", "fr"),
+        route: "home",
+        params: {},
+        cart: LS.get("bdr_cart", []),
+        wishlist: LS.get("bdr_wishlist", []),
+        products: PRODUCTS_SEED,
+        categories: CATS,
+        reviews: LS.get("bdr_reviews", REVIEWS_SEED),
+        orders: LS.get("bdr_orders", []),
+        messages: LS.get("bdr_messages", []),
+        adminAuthed: false,
+        adminTab: "products",
+        filters: {
+          cat: null,
+          region: null,
+          size: null,
+          minP: "",
+          maxP: "",
+          avail: null,
+          type: null,
+          q: "",
+        },
+        pdSelSize: null,
+        pdQty: 1,
+        pdGalleryIdx: 0,
+      };
+      function persist() {
+        LS.set("bdr_cart", state.cart);
+        LS.set("bdr_wishlist", state.wishlist);
+        LS.set("bdr_reviews", state.reviews);
+        LS.set("bdr_orders", state.orders);
+        LS.set("bdr_messages", state.messages);
+      }
+      function findProduct(id) {
+        return state.products.find((p) => p.id === id);
+      }
+      function catLabel(id) {
+        const c = state.categories.find((c) => c.id === id);
+        return c ? tf(c) : id;
+      }
+
+      /* ============================= TOAST ============================= */
+      let toastTimer;
+      function toast(msg) {
+        const el = document.getElementById("toast");
+        el.textContent = msg;
+        el.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+      }
+
+      /* ============================= CART / WISHLIST LOGIC ============================= */
+      function cartCount() {
+        return state.cart.reduce((s, i) => s + i.qty, 0);
+      }
+      function addToCart(pid, size, qty, mode) {
+        qty = qty || 1;
+        mode = mode || "sale";
+        const existing = state.cart.find(
+          (i) => i.id === pid && i.size === size && i.mode === mode,
+        );
+        if (existing) {
+          existing.qty += qty;
+        } else {
+          state.cart.push({ id: pid, size, qty, mode });
+        }
+        persist();
+        updateBadges();
+        toast(t("toast_added"));
+      }
+      function removeFromCart(idx) {
+        state.cart.splice(idx, 1);
+        persist();
+        render();
+      }
+      function changeCartQty(idx, delta) {
+        state.cart[idx].qty = Math.max(1, state.cart[idx].qty + delta);
+        persist();
+        render();
+      }
+      function toggleWishlist(pid) {
+        const i = state.wishlist.indexOf(pid);
+        if (i > -1) {
+          state.wishlist.splice(i, 1);
+          toast(t("toast_wish_remove"));
+        } else {
+          state.wishlist.push(pid);
+          toast(t("toast_wish_add"));
+        }
+        persist();
+        updateBadges();
+        renderRoute();
+      }
+      function updateBadges() {
+        const cb = document.getElementById("cartBadge"),
+          wb = document.getElementById("wishBadge");
+        const cc = cartCount(),
+          wc = state.wishlist.length;
+        cb.textContent = cc;
+        cb.hidden = cc === 0;
+        wb.textContent = wc;
+        wb.hidden = wc === 0;
+      }
+
+      /* ============================= ROUTER ============================= */
+      function parseHash() {
+        const h = (location.hash || "#/home").slice(2);
+        const [route, ...rest] = h.split("/");
+        return { route: route || "home", params: rest };
+      }
+      window.addEventListener("hashchange", () => {
+        const p = parseHash();
+        state.route = p.route;
+        state.params = p.params;
+        state.pdSelSize = null;
+        state.pdQty = 1;
+        state.pdGalleryIdx = 0;
+        renderRoute();
+        window.scrollTo({ top: 0 });
+        closeMobileNav();
+      });
+
+      /* ============================= NAV RENDER ============================= */
+      const NAV_ITEMS = [
+        ["home", "nav_home"],
+        ["shop", "nav_shop"],
+        ["about", "nav_about"],
+        ["contact", "nav_contact"],
+      ];
+      function renderNav() {
+        const mk = (r, key) =>
+          `<a href="#/${r}" data-nav class="${state.route === r ? "active" : ""}">${t(key)}</a>`;
+        document.getElementById("deskNav").innerHTML = NAV_ITEMS.map(([r, k]) =>
+          mk(r, k),
+        ).join("");
+        document.getElementById("mobileNav").innerHTML =
+          NAV_ITEMS.map(([r, k]) => mk(r, k)).join("") +
+          `<a href="#/wishlist" data-nav>${t("wishlist_title")}</a><a href="#/cart" data-nav>${t("cart_title")}</a>`;
+        document.getElementById("footLinks").innerHTML = NAV_ITEMS.map(
+          ([r, k]) => `<li><a href="#/${r}" data-nav>${t(k)}</a></li>`,
+        ).join("");
+        document.getElementById("footCats").innerHTML = state.categories
+          .slice(0, 5)
+          .map(
+            (c) =>
+              `<li><a href="#/shop/cat/${c.id}" data-nav>${tf(c)}</a></li>`,
+          )
+          .join("");
+        document.getElementById("year").textContent = new Date().getFullYear();
+      }
+      function closeMobileNav() {
+        document.getElementById("mobileNav").classList.remove("open");
+      }
+
+      /* ============================= ICONS ============================= */
+      const ICONS = {
+        heart: (active) =>
+          `<svg viewBox="0 0 24 24" fill="${active ? "currentColor" : "none"}" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7.5-4.6-10-9.1C.6 8.4 2.3 5 6 5c2.1 0 3.6 1.2 4.5 2.6C11.4 6.2 12.9 5 15 5c3.7 0 5.4 3.4 4 6.9C19.5 16.4 12 21 12 21z"/></svg>`,
+        phone: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>`,
+        mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>`,
+        pin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>`,
+        empty: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 4h2l2.4 12.4A2 2 0 0 0 9.4 18H18a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg>`,
+      };
+
+      /* ============================= CATEGORY ICON / PHOTO ============================= */
+      function catPhoto(id) {
+        if (CAT_PHOTOS[id] && CAT_PHOTOS[id].length) {
+          return `<img class="cat-img" src="${CAT_PHOTOS[id][0]}" alt="" loading="lazy">`;
+        }
+        return catIcon(id);
+      }
+      function catIcon(id) {
+        const p = PALETTES[id] || DEFAULT_PALETTE;
+        return `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="${p[0]}" stroke-width="1.4"/><rect x="35" y="35" width="30" height="30" fill="none" stroke="${p[1]}" stroke-width="1" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="4" fill="${p[0]}"/></svg>`;
+      }
+
+      /* ============================= PRODUCT CARD ============================= */
+      function productCard(p) {
+        const wished = state.wishlist.includes(p.id);
+        const availClass = p.stock === 0 ? "out" : p.stock <= 2 ? "" : "ok";
+        const availText =
+          p.stock === 0
+            ? t("out_of_stock")
+            : p.stock <= 2
+              ? t("low_stock")
+              : t("in_stock");
+        return `<div class="card fade-in">
+    <div class="thumb">
+      ${p.isNew ? `<span class="tag">${t("admin_newtag")}</span>` : p.rentable ? `<span class="tag rent">${t("rental_available")}</span>` : ""}
+      <button class="wish-btn ${wished ? "active" : ""}" data-wish="${p.id}" aria-label="wishlist">${ICONS.heart(wished)}</button>
+      <a href="#/product/${p.id}" data-nav>${pimg(p, 0)}</a>
+    </div>
+    <div class="info">
+      <div class="region">${tf(p.region)}</div>
+      <h4><a href="#/product/${p.id}" data-nav>${tf(p.name)}</a></h4>
+      <div class="price">${money(p.price)}</div>
+      <div class="sizes">${p.sizes.map((s) => `<span>${s}</span>`).join("")}</div>
+      <div class="avail ${availClass}">${availText}</div>
+      <div class="actions">
+        <a class="btn outline small" href="#/product/${p.id}" data-nav>${t("see_details")}</a>
+        <button class="btn small" data-quickadd="${p.id}" ${p.stock === 0 ? "disabled" : ""}>${t("add_cart")}</button>
+      </div>
+    </div>
+  </div>`;
+      }
+
+      /* ============================= VIEWS ============================= */
+      function viewHome() {
+        const news = [...state.products].filter((p) => p.isNew).slice(0, 4);
+        const featured = state.products.filter((p) => p.featured).slice(0, 4);
+        return `
+  <section class="hero">
+    <div class="wrap">
+      <div class="motif-line"></div>
+      <div class="eyebrow">Boutique de Rêve</div>
+      <h1>${t("hero_title")}</h1>
+      <p class="sub">${t("hero_sub")}</p>
+      <a href="#/shop" data-nav class="btn gold">${t("hero_cta")}</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><h2>${t("cats_title")}</h2><p>${t("cats_sub")}</p></div>
+      <div class="cat-grid">
+        ${state.categories.map((c) => `<a class="cat-card" href="#/shop/cat/${c.id}" data-nav>${catPhoto(c.id)}<span>${tf(c)}</span></a>`).join("")}
+      </div>
+    </div>
+  </section>
+
+  ${
+    news.length
+      ? `<section style="background:var(--cream-2)">
+    <div class="wrap">
+      <div class="section-head"><h2>${t("new_title")}</h2><p>${t("new_sub")}</p></div>
+      <div class="grid">${news.map(productCard).join("")}</div>
+    </div>
+  </section>`
+      : ""
+  }
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><h2>${t("feat_title")}</h2><p>${t("feat_sub")}</p></div>
+      <div class="grid">${featured.map(productCard).join("")}</div>
+    </div>
+  </section>
+
+  <section class="heritage">
+    <div class="wrap">
+      <div class="motif-line"></div>
+      <h2>${t("heritage_title")}</h2>
+      <p>${t("heritage_text")}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><h2>${t("reviews_title")}</h2><p>${t("reviews_sub")}</p></div>
+      <div class="reviews-grid">
+        ${state.reviews
+          .map(
+            (r) => `<div class="review">
+          <div class="stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</div>
+          <p>${tf(r.comment)}</p>
+          <div class="who"><div class="avatar">${r.name.charAt(0)}</div>${r.name}</div>
+        </div>`,
+          )
+          .join("")}
+      </div>
+    </div>
+  </section>`;
+      }
+
+      function viewShop() {
+        const f = state.filters;
+        let list = state.products.filter((p) => {
+          if (f.cat && p.cat !== f.cat) return false;
+          if (f.region && tf(p.region) !== f.region) return false;
+          if (f.size && !p.sizes.includes(f.size)) return false;
+          if (f.minP && p.price < Number(f.minP)) return false;
+          if (f.maxP && p.price > Number(f.maxP)) return false;
+          if (f.avail === "in" && p.stock === 0) return false;
+          if (f.avail === "out" && p.stock > 0) return false;
+          if (f.type === "sale" && !(p.price > 0)) return false;
+          if (f.type === "rental" && !p.rentable) return false;
+          if (
+            f.q &&
+            !(
+              tf(p.name).toLowerCase().includes(f.q.toLowerCase()) ||
+              tf(p.region).toLowerCase().includes(f.q.toLowerCase()) ||
+              catLabel(p.cat).toLowerCase().includes(f.q.toLowerCase())
+            )
+          )
+            return false;
+          return true;
+        });
+        const regions = [...new Set(state.products.map((p) => tf(p.region)))];
+        const sizesAll = [...new Set(state.products.flatMap((p) => p.sizes))];
+        return `
+  <div class="page-head"><h1>${t("shop_title")}</h1><p>${t("shop_sub")}</p></div>
+  <div class="wrap" style="padding-top:44px;">
+    <div class="shop-layout">
+      <aside class="filters">
+        <div class="searchbar"><input type="text" id="shopSearch" placeholder="${t("search_ph")}" value="${f.q || ""}"><button id="shopSearchBtn">${ICONS.pin}</button></div>
+        <div class="filter-group">
+          <h5>${t("filter_cat")}</h5>
+          ${state.categories.map((c) => `<label><input type="radio" name="fcat" value="${c.id}" ${f.cat === c.id ? "checked" : ""}> ${tf(c)}</label>`).join("")}
+          <label><input type="radio" name="fcat" value="" ${!f.cat ? "checked" : ""}> ${t("reset_filters")}</label>
+        </div>
+        <div class="filter-group">
+          <h5>${t("filter_region")}</h5>
+          <select class="select-field" id="fregion">
+            <option value="">${t("filter_region")}</option>
+            ${regions.map((r) => `<option value="${r}" ${f.region === r ? "selected" : ""}>${r}</option>`).join("")}
+          </select>
+        </div>
+        <div class="filter-group">
+          <h5>${t("filter_size")}</h5>
+          ${sizesAll.map((s) => `<label><input type="radio" name="fsize" value="${s}" ${f.size === s ? "checked" : ""}> ${s}</label>`).join("")}
+          <label><input type="radio" name="fsize" value="" ${!f.size ? "checked" : ""}> ${t("reset_filters")}</label>
+        </div>
+        <div class="filter-group">
+          <h5>${t("filter_price")}</h5>
+          <div class="range-row"><input type="number" class="field" id="fminp" placeholder="Min" value="${f.minP}"> — <input type="number" class="field" id="fmaxp" placeholder="Max" value="${f.maxP}"></div>
+        </div>
+        <div class="filter-group">
+          <h5>${t("filter_avail")}</h5>
+          <label><input type="radio" name="favail" value="in" ${f.avail === "in" ? "checked" : ""}> ${t("in_stock")}</label>
+          <label><input type="radio" name="favail" value="out" ${f.avail === "out" ? "checked" : ""}> ${t("out_of_stock")}</label>
+          <label><input type="radio" name="favail" value="" ${!f.avail ? "checked" : ""}> ${t("reset_filters")}</label>
+        </div>
+        <div class="filter-group">
+          <h5>${t("filter_type")}</h5>
+          <label><input type="radio" name="ftype" value="sale" ${f.type === "sale" ? "checked" : ""}> ${t("sale")}</label>
+          <label><input type="radio" name="ftype" value="rental" ${f.type === "rental" ? "checked" : ""}> ${t("rental")}</label>
+          <label><input type="radio" name="ftype" value="" ${!f.type ? "checked" : ""}> ${t("reset_filters")}</label>
+        </div>
+        <button class="btn outline small" id="clearFilters">${t("reset_filters")}</button>
+      </aside>
+      <div>
+        <div class="shop-top"><span style="font-size:13.5px;color:var(--ink-soft)">${list.length} ${t("results_count")}</span></div>
+        ${
+          list.length
+            ? `<div class="grid">${list.map(productCard).join("")}</div>`
+            : `<div class="empty-state">${ICONS.empty}<p>${t("no_results")}</p></div>`
+        }
+      </div>
+    </div>
+  </div>`;
+      }
+
+      function viewProduct() {
+        const p = findProduct(state.params[0]);
+        if (!p)
+          return `<div class="empty-state">${ICONS.empty}<p>${t("no_results")}</p></div>`;
+        const gal =
+          p.photos && p.photos.length ? p.photos.map((_, i) => i) : [0, 1, 2];
+        const sel = state.pdSelSize || p.sizes[0];
+        const related = state.products
+          .filter((r) => r.cat === p.cat && r.id !== p.id)
+          .slice(0, 4);
+        return `
+  <div class="wrap" style="padding:44px 24px 90px;">
+    <div class="pd-layout">
+      <div class="pd-gallery">
+        <div class="main">
+          ${pimg(p, state.pdGalleryIdx)}
+          ${
+            gal.length > 1
+              ? `<button class="gal-arrow prev" data-galnav="-1" aria-label="Précédent">‹</button>
+          <button class="gal-arrow next" data-galnav="1" aria-label="Suivant">›</button>`
+              : ""
+          }
+        </div>
+        <div class="pd-thumbs">
+          ${gal.map((i) => `<button class="${state.pdGalleryIdx === i ? "active" : ""}" data-galidx="${i}">${pimg(p, i)}</button>`).join("")}
+        </div>
+      </div>
+      <div class="pd-info">
+        <div class="region">${tf(p.region)}</div>
+        <h1>${tf(p.name)}</h1>
+        <div class="pd-price">
+          <span>${money(p.price)}</span>
+          ${p.rentable ? `<span class="rent">${t("rent_from")} ${money(p.rent)}</span>` : ""}
+        </div>
+        <p class="pd-desc">${tf(p.desc)}</p>
+        <div class="pd-row">
+          <label>${t("size_label")}</label>
+          <div class="size-opts">${p.sizes.map((s) => `<button class="${sel === s ? "active" : ""}" data-size="${s}">${s}</button>`).join("")}</div>
+        </div>
+        <div class="pd-row">
+          <label>${t("qty_label")}</label>
+          <div class="qty-row"><button data-qty="-1">−</button><span>${state.pdQty}</span><button data-qty="1">+</button></div>
+        </div>
+        <div class="pd-actions">
+          <button class="btn" id="pdAddCart" ${p.stock === 0 ? "disabled" : ""}>${t("add_cart")}</button>
+          <button class="btn gold" id="pdBuyNow" ${p.stock === 0 ? "disabled" : ""}>${t("buy_now")}</button>
+          ${p.rentable ? `<button class="btn outline" id="pdAddRent">${t("rental_available")}</button>` : ""}
+          <a class="btn outline" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(tf(p.name))}" target="_blank" rel="noopener">${t("ask_info")}</a>
+        </div>
+        <div class="pd-meta">
+          <span>${t("color_label")}: ${tf(p.color)}</span>
+          <span>${t("material_label")}: ${tf(p.material)}</span>
+          <span>${p.stock === 0 ? t("out_of_stock") : p.stock <= 2 ? t("low_stock") : t("in_stock")}</span>
+        </div>
+      </div>
+    </div>
+    ${
+      related.length
+        ? `<div style="margin-top:80px;">
+      <div class="section-head" style="text-align:center"><h2 style="font-size:26px;">${t("you_may_like")}</h2></div>
+      <div class="grid">${related.map(productCard).join("")}</div>
+    </div>`
+        : ""
+    }
+  </div>`;
+      }
+
+      function viewCart() {
+        if (state.cart.length === 0) {
+          return `<div class="page-head"><h1>${t("cart_title")}</h1></div>
+    <div class="empty-state">${ICONS.empty}<p>${t("cart_empty")}</p><a href="#/shop" data-nav class="btn" style="margin-top:16px;">${t("continue_shopping")}</a></div>`;
+        }
+        let subtotal = 0;
+        const rows = state.cart
+          .map((item, idx) => {
+            const p = findProduct(item.id);
+            if (!p) return "";
+            const unit = item.mode === "rent" ? p.rent : p.price;
+            subtotal += unit * item.qty;
+            return `<tr>
+      <td><div class="cart-row-main"><div class="cart-item-thumb">${pimg(p, 0)}</div>
+        <div><div style="font-size:14.5px;">${tf(p.name)}</div>
+        <div style="font-size:12px;color:var(--ink-soft)">${item.size} · ${item.mode === "rent" ? t("rental") : t("sale")}</div>
+        <button class="remove-link" data-cartremove="${idx}">${t("admin_delete")}</button></div></div></td>
+      <td><div class="qty-mini"><button data-cartqty="${idx}" data-d="-1">−</button><span>${item.qty}</span><button data-cartqty="${idx}" data-d="1">+</button></div></td>
+      <td>${money(unit * item.qty)}</td>
+    </tr>`;
+          })
+          .join("");
+        const delivery = subtotal >= 30000 ? 0 : 700;
+        const total = subtotal + delivery;
+        return `<div class="page-head"><h1>${t("cart_title")}</h1><p>${t("cart_sub")}</p></div>
+  <div class="wrap" style="padding-top:44px; display:grid; grid-template-columns:1fr 340px; gap:40px;" id="cartLayout">
+    <table class="cart-table"><tbody>${rows}</tbody></table>
+    <div class="cart-summary">
+      <div class="sum-row"><span>${t("subtotal")}</span><span>${money(subtotal)}</span></div>
+      <div class="sum-row"><span>${t("delivery")}</span><span>${delivery === 0 ? "—" : money(delivery)}</span></div>
+      <div class="sum-row total"><span>${t("total")}</span><span>${money(total)}</span></div>
+      <p style="font-size:11.5px;color:var(--ink-soft);margin:0;">${t("free_over")}</p>
+      <a href="#/checkout" data-nav class="btn">${t("checkout")}</a>
+      <a href="#/shop" data-nav class="btn outline">${t("continue_shopping")}</a>
+    </div>
+  </div>
+  <style>@media (max-width:760px){#cartLayout{grid-template-columns:1fr !important;}}</style>`;
+      }
+
+      function viewCheckout() {
+        if (state.cart.length === 0) {
+          location.hash = "#/cart";
+          return "";
+        }
+        let subtotal = state.cart.reduce((s, i) => {
+          const p = findProduct(i.id);
+          return s + (p ? (i.mode === "rent" ? p.rent : p.price) * i.qty : 0);
+        }, 0);
+        const delivery = subtotal >= 30000 ? 0 : 700;
+        return `<div class="page-head"><h1>${t("checkout_title")}</h1><p>${t("checkout_sub")}</p></div>
+  <div class="wrap" style="padding:44px 24px 90px; max-width:760px;">
+    <form id="checkoutForm">
+      <div class="form-grid">
+        <div class="form-group"><label>${t("first_name")}</label><input class="field" required name="firstName"></div>
+        <div class="form-group"><label>${t("last_name")}</label><input class="field" required name="lastName"></div>
+        <div class="form-group"><label>${t("phone")}</label><input class="field" required type="tel" name="phone"></div>
+        <div class="form-group"><label>${t("email")}</label><input class="field" type="email" name="email"></div>
+        <div class="form-group"><label>${t("wilaya")}</label>
+          <select class="field" required name="wilaya"><option value="">—</option>
+          ${WILAYAS.map((w) => `<option value="${w[0]}">${state.lang === "ar" ? w[1] : w[0]}</option>`).join("")}</select>
+        </div>
+        <div class="form-group"><label>${t("commune")}</label><input class="field" required name="commune"></div>
+        <div class="form-group full"><label>${t("address")}</label><textarea class="field" required name="address" rows="2"></textarea></div>
+        <div class="form-group full">
+          <label>${t("delivery_mode")}</label>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <label class="radio-card"><input type="radio" name="deliveryMode" value="home" checked> ${t("home_delivery")}</label>
+            <label class="radio-card"><input type="radio" name="deliveryMode" value="office"> ${t("office_delivery")}</label>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>${t("payment_mode")}</label>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <label class="radio-card"><input type="radio" name="paymentMode" value="cod" checked> ${t("cod")}</label>
+            <label class="radio-card disabled"><input type="radio" disabled> ${t("soon")}</label>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary" style="margin-top:26px; max-width:none;">
+        <div class="sum-row"><span>${t("subtotal")}</span><span>${money(subtotal)}</span></div>
+        <div class="sum-row"><span>${t("delivery")}</span><span>${delivery === 0 ? "—" : money(delivery)}</span></div>
+        <div class="sum-row total"><span>${t("total")}</span><span>${money(subtotal + delivery)}</span></div>
+      </div>
+      <button class="btn gold" style="margin-top:20px;width:100%;" type="submit">${t("place_order")}</button>
+    </form>
+  </div>`;
+      }
+
+      function viewConfirmation() {
+        const num = state.params[0] || "—";
+        return `<div class="confirm-box fade-in">
+    <div class="eyebrow">✓</div>
+    <h1>${t("order_confirmed")}</h1>
+    <p style="color:var(--ink-soft); margin-top:10px;">${t("order_confirmed_sub")}</p>
+    <div class="num">${t("order_number")}: #${num}</div>
+    <a href="#/home" data-nav class="btn">${t("back_home")}</a>
+  </div>`;
+      }
+
+      function viewWishlist() {
+        const items = state.products.filter((p) =>
+          state.wishlist.includes(p.id),
+        );
+        return `<div class="page-head"><h1>${t("wishlist_title")}</h1><p>${t("wishlist_sub")}</p></div>
+  <div class="wrap" style="padding-top:44px;">
+    ${
+      items.length
+        ? `<div class="grid">${items.map(productCard).join("")}</div>`
+        : `<div class="empty-state">${ICONS.empty}<p>${t("wishlist_empty")}</p></div>`
+    }
+  </div>`;
+      }
+
+      function viewAbout() {
+        return `<div class="page-head"><h1>${t("about_title")}</h1><p>${t("about_sub")}</p></div>
+  <div class="wrap" style="padding:56px 24px;">
+    <div class="about-hero">
+      <div>${svgGarment("about1", "#6E1F2B", "#2B1015", "diamond")}</div>
+      <div>
+        <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:16px;">${t("about_p1")}</p>
+        <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:16px;">${t("about_p2")}</p>
+        <p style="font-size:15.5px; color:var(--ink-soft);">${t("about_p3")}</p>
+      </div>
+    </div>
+  </div>`;
+      }
+
+      function viewContact() {
+        return `<div class="page-head"><h1>${t("contact_title")}</h1><p>${t("contact_sub")}</p></div>
+  <div class="wrap" style="padding:56px 24px 90px;">
+    <div class="contact-grid">
+      <div>
+        <div class="contact-list">
+          <div class="row">${ICONS.phone}<span>${t("phone_val")}</span></div>
+          <div class="row">${ICONS.mail}<span>contact@boutiquedereve.dz</span></div>
+          <div class="row">${ICONS.pin}<span>${t("address_val")}</span></div>
+        </div>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h2V4h-2a4 4 0 0 0-4 4v2H9v4h2v6h4v-6h2.5L18 10h-3V8a1 1 0 0 1 1-1z"/></svg></a>
+          <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20l1.2-5.5a8.4 8.4 0 1 1 16.8-3z"/></svg></a>
+        </div>
+        <div style="margin-top:26px; border:1px solid var(--line); padding:18px; font-size:13px; color:var(--ink-soft);">${t("delivery_note")}</div>
+        <svg viewBox="0 0 300 180" style="margin-top:22px; border:1px solid var(--line);">
+          <rect width="300" height="180" fill="#F4F5F6"/>
+          <path d="M40 30 L120 20 L200 40 L260 70 L250 120 L190 160 L110 150 L50 110 Z" fill="none" stroke="#9AA0A6" stroke-width="1.4"/>
+          <circle cx="150" cy="85" r="5" fill="#4B4F55"/><text x="158" y="88" font-size="11" fill="#242427" font-family="sans-serif">Alger</text>
+        </svg>
+      </div>
+      <form id="contactForm">
+        <div class="form-group" style="margin-bottom:14px;"><label>${t("form_name")}</label><input class="field" required name="name"></div>
+        <div class="form-group" style="margin-bottom:14px;"><label>${t("email")}</label><input class="field" type="email" required name="email"></div>
+        <div class="form-group" style="margin-bottom:14px;"><label>${t("form_message")}</label><textarea class="field" rows="5" required name="message"></textarea></div>
+        <button class="btn gold" type="submit">${t("form_send")}</button>
+      </form>
+    </div>
+  </div>`;
+      }
+
+      /* ============================= ADMIN ============================= */
+      function viewAdmin() {
+        if (!state.adminAuthed) {
+          return `<div class="admin-gate">
+      <h1 style="margin-bottom:20px;">${t("admin_title")}</h1>
+      <input class="field" type="password" id="adminPass" placeholder="${t("admin_password")}" style="margin-bottom:12px;">
+      <button class="btn" id="adminEnter" style="width:100%;">${t("admin_enter")}</button>
+      <p id="adminErr" style="color:var(--bordeaux); font-size:13px; margin-top:12px;"></p>
+    </div>`;
+        }
+        const tab = state.adminTab;
+        return `<div class="wrap" style="padding:44px 24px 90px;">
+    <h1 style="margin-bottom:26px;">${t("admin_title")}</h1>
+    <div class="admin-tabs">
+      <button data-atab="products" class="${tab === "products" ? "active" : ""}">${t("admin_products")}</button>
+      <button data-atab="orders" class="${tab === "orders" ? "active" : ""}">${t("admin_orders")}</button>
+      <button data-atab="reviews" class="${tab === "reviews" ? "active" : ""}">${t("admin_reviews")}</button>
+      <button data-atab="categories" class="${tab === "categories" ? "active" : ""}">${t("admin_categories")}</button>
+    </div>
+    ${tab === "products" ? adminProducts() : tab === "orders" ? adminOrders() : tab === "reviews" ? adminReviews() : adminCategories()}
+    <button class="btn outline small" id="adminReset" style="margin-top:34px;">${t("admin_reset")}</button>
+  </div>`;
+      }
+      function adminProducts() {
+        const editing = state.adminEditId
+          ? findProduct(state.adminEditId)
+          : null;
+        const form = `<div class="admin-form">
+    <h3 style="margin-bottom:16px; font-size:18px;">${editing ? t("admin_edit") : t("admin_add_product")}</h3>
+    <form id="productForm" class="form-grid">
+      <input type="hidden" name="id" value="${editing ? editing.id : ""}">
+      <div class="form-group"><label>${t("admin_name")} (FR)</label><input class="field" name="name_fr" required value="${editing ? tfRaw(editing.name, "fr") : ""}"></div>
+      <div class="form-group"><label>${t("admin_name")} (AR)</label><input class="field" name="name_ar" value="${editing ? tfRaw(editing.name, "ar") : ""}"></div>
+      <div class="form-group"><label>${t("admin_name")} (EN)</label><input class="field" name="name_en" value="${editing ? tfRaw(editing.name, "en") : ""}"></div>
+      <div class="form-group"><label>${t("filter_cat")}</label>
+        <select class="field" name="cat">${state.categories.map((c) => `<option value="${c.id}" ${editing && editing.cat === c.id ? "selected" : ""}>${tf(c)}</option>`).join("")}</select>
+      </div>
+      <div class="form-group"><label>${t("admin_price")}</label><input class="field" type="number" name="price" required value="${editing ? editing.price : ""}"></div>
+      <div class="form-group"><label>${t("admin_rent")}</label><input class="field" type="number" name="rent" value="${editing ? editing.rent : 0}"></div>
+      <div class="form-group"><label>${t("admin_stock")}</label><input class="field" type="number" name="stock" required value="${editing ? editing.stock : 1}"></div>
+      <div class="form-group"><label>${t("size_label")} (S,M,L)</label><input class="field" name="sizes" value="${editing ? editing.sizes.join(",") : "S,M,L"}"></div>
+      <div class="form-group full" style="display:flex; gap:20px; align-items:center;">
+        <label style="display:flex;gap:6px;align-items:center;"><input type="checkbox" name="featured" ${editing && editing.featured ? "checked" : ""}> ${t("admin_featured")}</label>
+        <label style="display:flex;gap:6px;align-items:center;"><input type="checkbox" name="isNew" ${editing && editing.isNew ? "checked" : ""}> ${t("admin_newtag")}</label>
+        <label style="display:flex;gap:6px;align-items:center;"><input type="checkbox" name="rentable" ${editing && editing.rentable ? "checked" : ""}> ${t("rental_available")}</label>
+      </div>
+      <div class="form-group full" style="display:flex; gap:10px;">
+        <button class="btn small" type="submit">${t("admin_save")}</button>
+        ${editing ? `<button class="btn outline small" type="button" id="cancelEdit">${t("admin_cancel")}</button>` : ""}
+      </div>
+    </form>
+  </div>`;
+        const rows = state.products
+          .map(
+            (p) => `<tr>
+    <td>${tf(p.name)}</td><td>${catLabel(p.cat)}</td><td>${money(p.price)}</td><td>${p.stock}</td>
+    <td><button class="mini-btn" data-editprod="${p.id}">${t("admin_edit")}</button><button class="mini-btn" data-delprod="${p.id}">${t("admin_delete")}</button></td>
+  </tr>`,
+          )
+          .join("");
+        return (
+          form +
+          `<table class="admin-table"><thead><tr><th>${t("admin_name")}</th><th>${t("filter_cat")}</th><th>${t("admin_price")}</th><th>${t("admin_stock")}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`
+        );
+      }
+      function tfRaw(field, lang) {
+        return field[lang] || "";
+      }
+      function adminOrders() {
+        if (state.orders.length === 0)
+          return `<p style="color:var(--ink-soft); font-size:14px;">${t("admin_no_orders")}</p>`;
+        const statuses = ["new", "confirmed", "prep", "shipped", "delivered"];
+        const rows = [...state.orders]
+          .reverse()
+          .map(
+            (o) => `<tr>
+    <td>#${o.num}</td><td>${o.firstName} ${o.lastName}</td><td>${o.date}</td><td>${money(o.total)}</td>
+    <td><select class="status-select" data-orderstatus="${o.num}">
+      ${statuses.map((s) => `<option value="${s}" ${o.status === s ? "selected" : ""}>${t("status_" + s)}</option>`).join("")}
+    </select></td>
+  </tr>`,
+          )
+          .join("");
+        return `<table class="admin-table"><thead><tr><th>${t("order_number")}</th><th>${t("admin_customer")}</th><th>${t("admin_date")}</th><th>${t("total")}</th><th>${t("admin_status")}</th></tr></thead><tbody>${rows}</tbody></table>`;
+      }
+      function adminReviews() {
+        const rows = state.reviews
+          .map(
+            (
+              r,
+              i,
+            ) => `<tr><td>${r.name}</td><td>${"★".repeat(r.rating)}</td><td style="max-width:320px;">${tf(r.comment)}</td>
+    <td><button class="mini-btn" data-delreview="${i}">${t("admin_delete")}</button></td></tr>`,
+          )
+          .join("");
+        return `<table class="admin-table"><thead><tr><th>${t("admin_customer")}</th><th>★</th><th>${t("form_message")}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
+      }
+      function adminCategories() {
+        const rows = state.categories
+          .map(
+            (
+              c,
+            ) => `<tr><td>${c.id}</td><td>${c.fr}</td><td>${c.ar}</td><td>${c.en}</td>
+    <td><button class="mini-btn" data-delcat="${c.id}">${t("admin_delete")}</button></td></tr>`,
+          )
+          .join("");
+        return `<div class="admin-form"><h3 style="margin-bottom:16px; font-size:18px;">${t("admin_new_cat")}</h3>
+    <form id="catForm" class="form-grid">
+      <div class="form-group"><label>id</label><input class="field" name="id" required></div>
+      <div class="form-group"><label>FR</label><input class="field" name="fr" required></div>
+      <div class="form-group"><label>AR</label><input class="field" name="ar"></div>
+      <div class="form-group"><label>EN</label><input class="field" name="en"></div>
+      <div class="form-group full"><button class="btn small" type="submit">${t("admin_add")}</button></div>
+    </form></div>
+    <table class="admin-table"><thead><tr><th>ID</th><th>FR</th><th>AR</th><th>EN</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
+      }
+
+      /* ============================= MAIN RENDER ============================= */
+      const ROUTES = {
+        home: viewHome,
+        shop: viewShop,
+        product: viewProduct,
+        cart: viewCart,
+        checkout: viewCheckout,
+        confirmation: viewConfirmation,
+        wishlist: viewWishlist,
+        about: viewAbout,
+        contact: viewContact,
+        admin: viewAdmin,
+      };
+
+      function renderRoute() {
+        document.documentElement.lang = state.lang;
+        document.documentElement.dir = state.lang === "ar" ? "rtl" : "ltr";
+        if (
+          state.route === "shop" &&
+          state.params[0] === "cat" &&
+          state.params[1]
+        ) {
+          state.filters.cat = state.params[1];
+        }
+        const fn = ROUTES[state.route] || viewHome;
+        document.getElementById("app").innerHTML =
+          `<div class="fade-in">${fn()}</div>`;
+        renderNav();
+        updateBadges();
+        bindDynamicEvents();
+        updateHeader();
+        document
+          .querySelectorAll("select.lang-select")
+          .forEach((s) => (s.value = state.lang));
+      }
+      function render() {
+        renderRoute();
+      }
+
+      /* ============================= EVENTS ============================= */
+      document.addEventListener("click", (e) => {
+        const navEl = e.target.closest("[data-nav]");
+        if (navEl) {
+          closeMobileNav();
+        }
+
+        const wish = e.target.closest("[data-wish]");
+        if (wish) {
+          toggleWishlist(wish.dataset.wish);
+          return;
+        }
+        const qa = e.target.closest("[data-quickadd]");
+        if (qa) {
+          const p = findProduct(qa.dataset.quickadd);
+          addToCart(p.id, p.sizes[0], 1, "sale");
+          return;
+        }
+      });
+
+      document.getElementById("langSelect").addEventListener("change", (e) => {
+        state.lang = e.target.value;
+        LS.set("bdr_lang", state.lang);
+        renderRoute();
+      });
+      function applyTheme(th) {
+        document.documentElement.setAttribute("data-theme", th);
+        LS.set("bdr_theme", th);
+        const b = document.getElementById("themeToggle");
+        if (b) b.textContent = th === "dark" ? "☀️" : "🌙";
+      }
+      applyTheme(LS.get("bdr_theme", "light"));
+      document.getElementById("themeToggle").addEventListener("click", () => {
+        applyTheme(
+          document.documentElement.getAttribute("data-theme") === "dark"
+            ? "light"
+            : "dark",
+        );
+      });
+      document
+        .getElementById("hamburger")
+        .addEventListener("click", () =>
+          document.getElementById("mobileNav").classList.toggle("open"),
+        );
+      document.getElementById("searchToggle").addEventListener("click", () => {
+        const sb = document.getElementById("searchBar");
+        sb.style.display = sb.style.display === "none" ? "block" : "none";
+        if (sb.style.display === "block")
+          document.getElementById("quickSearch").focus();
+      });
+      function doQuickSearch() {
+        const v = document.getElementById("quickSearch").value;
+        state.filters.q = v;
+        location.hash = "#/shop";
+        document.getElementById("searchBar").style.display = "none";
+        renderRoute();
+      }
+      document
+        .getElementById("quickSearchGo")
+        .addEventListener("click", doQuickSearch);
+      document
+        .getElementById("quickSearch")
+        .addEventListener("keydown", (e) => {
+          if (e.key === "Enter") doQuickSearch();
+        });
+
+      function bindDynamicEvents() {
+        const app = document.getElementById("app");
+
+        // shop filters
+        const shopSearch = document.getElementById("shopSearch");
+        if (shopSearch) {
+          document
+            .getElementById("shopSearchBtn")
+            .addEventListener("click", () => {
+              state.filters.q = shopSearch.value;
+              renderRoute();
+            });
+          shopSearch.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              state.filters.q = shopSearch.value;
+              renderRoute();
+            }
+          });
+        }
+        app.querySelectorAll('input[name="fcat"]').forEach((r) =>
+          r.addEventListener("change", () => {
+            state.filters.cat = r.value || null;
+            renderRoute();
+          }),
+        );
+        app.querySelectorAll('input[name="fsize"]').forEach((r) =>
+          r.addEventListener("change", () => {
+            state.filters.size = r.value || null;
+            renderRoute();
+          }),
+        );
+        app.querySelectorAll('input[name="favail"]').forEach((r) =>
+          r.addEventListener("change", () => {
+            state.filters.avail = r.value || null;
+            renderRoute();
+          }),
+        );
+        app.querySelectorAll('input[name="ftype"]').forEach((r) =>
+          r.addEventListener("change", () => {
+            state.filters.type = r.value || null;
+            renderRoute();
+          }),
+        );
+        const fregion = document.getElementById("fregion");
+        if (fregion)
+          fregion.addEventListener("change", () => {
+            state.filters.region = fregion.value || null;
+            renderRoute();
+          });
+        const fminp = document.getElementById("fminp");
+        if (fminp)
+          fminp.addEventListener("change", () => {
+            state.filters.minP = fminp.value;
+            renderRoute();
+          });
+        const fmaxp = document.getElementById("fmaxp");
+        if (fmaxp)
+          fmaxp.addEventListener("change", () => {
+            state.filters.maxP = fmaxp.value;
+            renderRoute();
+          });
+        const clearF = document.getElementById("clearFilters");
+        if (clearF)
+          clearF.addEventListener("click", () => {
+            state.filters = {
+              cat: null,
+              region: null,
+              size: null,
+              minP: "",
+              maxP: "",
+              avail: null,
+              type: null,
+              q: "",
+            };
+            renderRoute();
+          });
+
+        // product detail
+        app.querySelectorAll("[data-size]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.pdSelSize = b.dataset.size;
+            renderRoute();
+          }),
+        );
+        app.querySelectorAll("[data-qty]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.pdQty = Math.max(1, state.pdQty + Number(b.dataset.qty));
+            renderRoute();
+          }),
+        );
+        app.querySelectorAll("[data-galidx]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.pdGalleryIdx = Number(b.dataset.galidx);
+            renderRoute();
+          }),
+        );
+        app.querySelectorAll("[data-galnav]").forEach((b) =>
+          b.addEventListener("click", () => {
+            const p = findProduct(state.params[0]);
+            const n = p.photos && p.photos.length ? p.photos.length : 3;
+            state.pdGalleryIdx =
+              (state.pdGalleryIdx + Number(b.dataset.galnav) + n) % n;
+            renderRoute();
+          }),
+        );
+        const pdAdd = document.getElementById("pdAddCart");
+        if (pdAdd)
+          pdAdd.addEventListener("click", () => {
+            const p = findProduct(state.params[0]);
+            addToCart(p.id, state.pdSelSize || p.sizes[0], state.pdQty, "sale");
+          });
+        const pdBuy = document.getElementById("pdBuyNow");
+        if (pdBuy)
+          pdBuy.addEventListener("click", () => {
+            const p = findProduct(state.params[0]);
+            addToCart(p.id, state.pdSelSize || p.sizes[0], state.pdQty, "sale");
+            location.hash = "#/checkout";
+          });
+        const pdRent = document.getElementById("pdAddRent");
+        if (pdRent)
+          pdRent.addEventListener("click", () => {
+            const p = findProduct(state.params[0]);
+            addToCart(p.id, state.pdSelSize || p.sizes[0], state.pdQty, "rent");
+          });
+
+        // cart
+        app
+          .querySelectorAll("[data-cartremove]")
+          .forEach((b) =>
+            b.addEventListener("click", () =>
+              removeFromCart(Number(b.dataset.cartremove)),
+            ),
+          );
+        app
+          .querySelectorAll("[data-cartqty]")
+          .forEach((b) =>
+            b.addEventListener("click", () =>
+              changeCartQty(Number(b.dataset.cartqty), Number(b.dataset.d)),
+            ),
+          );
+
+        // checkout
+        const cf = document.getElementById("checkoutForm");
+        if (cf)
+          cf.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const fd = new FormData(cf);
+            let subtotal = state.cart.reduce((s, i) => {
+              const p = findProduct(i.id);
+              return (
+                s + (p ? (i.mode === "rent" ? p.rent : p.price) * i.qty : 0)
+              );
+            }, 0);
+            const delivery = subtotal >= 30000 ? 0 : 700;
+            const num = Math.floor(100000 + Math.random() * 899999);
+            state.orders.push({
+              num,
+              firstName: fd.get("firstName"),
+              lastName: fd.get("lastName"),
+              phone: fd.get("phone"),
+              email: fd.get("email"),
+              wilaya: fd.get("wilaya"),
+              commune: fd.get("commune"),
+              address: fd.get("address"),
+              deliveryMode: fd.get("deliveryMode"),
+              paymentMode: fd.get("paymentMode"),
+              items: JSON.parse(JSON.stringify(state.cart)),
+              subtotal,
+              delivery,
+              total: subtotal + delivery,
+              status: "new",
+              date: new Date().toLocaleDateString(
+                state.lang === "ar" ? "ar-DZ" : "fr-DZ",
+              ),
+            });
+
+            // Message WhatsApp avec les détails de la commande (écrit en français)
+            const lines = state.cart
+              .map((i) => {
+                const p = findProduct(i.id);
+                if (!p) return "";
+                const unit = i.mode === "rent" ? p.rent : p.price;
+                return `- ${p.name.fr} (${i.size}, ${i.mode === "rent" ? "Location" : "Achat"}) x${i.qty} = ${(unit * i.qty).toLocaleString("fr-DZ")} DA`;
+              })
+              .join("\n");
+            const msg =
+              `Nouvelle commande #${num}\n\n` +
+              `Cliente : ${fd.get("firstName")} ${fd.get("lastName")}\n` +
+              `Téléphone : ${fd.get("phone")}\n` +
+              `Wilaya : ${fd.get("wilaya")}\n` +
+              `Commune : ${fd.get("commune")}\n` +
+              `Adresse : ${fd.get("address")}\n` +
+              `Livraison : ${fd.get("deliveryMode") === "home" ? "À domicile" : "Point de retrait"}\n` +
+              `Paiement : à la livraison\n\n` +
+              `${lines}\n\n` +
+              `Sous-total : ${subtotal.toLocaleString("fr-DZ")} DA\n` +
+              `Frais de livraison : ${delivery.toLocaleString("fr-DZ")} DA\n` +
+              `Total : ${(subtotal + delivery).toLocaleString("fr-DZ")} DA`;
+            window.open(
+              "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg),
+              "_blank",
+            );
+
+            state.cart = [];
+            persist();
+            updateBadges();
+            location.hash = "#/confirmation/" + num;
+          });
+
+        // contact
+        const ctf = document.getElementById("contactForm");
+        if (ctf)
+          ctf.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const fd = new FormData(ctf);
+            state.messages.push({
+              name: fd.get("name"),
+              email: fd.get("email"),
+              message: fd.get("message"),
+              date: new Date().toISOString(),
+            });
+            persist();
+            toast(t("form_sent"));
+            ctf.reset();
+          });
+
+        // admin gate
+        const ae = document.getElementById("adminEnter");
+        if (ae)
+          ae.addEventListener("click", () => {
+            const val = document.getElementById("adminPass").value;
+            if (val === "reve2026") {
+              state.adminAuthed = true;
+              renderRoute();
+            } else
+              document.getElementById("adminErr").textContent =
+                t("admin_wrong");
+          });
+        // admin tabs
+        app.querySelectorAll("[data-atab]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.adminTab = b.dataset.atab;
+            state.adminEditId = null;
+            renderRoute();
+          }),
+        );
+        // admin product form
+        const pf = document.getElementById("productForm");
+        if (pf)
+          pf.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const fd = new FormData(pf);
+            const id = fd.get("id") || "p" + Date.now();
+            const old = findProduct(id);
+            const data = {
+              id,
+              cat: fd.get("cat"),
+              region: old
+                ? old.region
+                : { fr: "Algérie", ar: "الجزائر", en: "Algeria" },
+              price: Number(fd.get("price")),
+              rent: Number(fd.get("rent")) || 0,
+              sizes: fd
+                .get("sizes")
+                .split(",")
+                .map((s) => s.trim())
+                .filter(Boolean),
+              color: old ? old.color : { fr: "—", ar: "—", en: "—" },
+              material: old ? old.material : { fr: "—", ar: "—", en: "—" },
+              stock: Number(fd.get("stock")),
+              featured: fd.get("featured") === "on",
+              isNew: fd.get("isNew") === "on",
+              rentable: fd.get("rentable") === "on",
+              photos: old ? old.photos : undefined,
+              name: {
+                fr: fd.get("name_fr"),
+                ar: fd.get("name_ar") || fd.get("name_fr"),
+                en: fd.get("name_en") || fd.get("name_fr"),
+              },
+              desc: old ? old.desc : { fr: "", ar: "", en: "" },
+            };
+            const idx = state.products.findIndex((p) => p.id === id);
+            if (idx > -1) state.products[idx] = data;
+            else state.products.push(data);
+            state.adminEditId = null;
+            persist();
+            renderRoute();
+          });
+        app.querySelectorAll("[data-editprod]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.adminEditId = b.dataset.editprod;
+            renderRoute();
+          }),
+        );
+        app.querySelectorAll("[data-delprod]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.products = state.products.filter(
+              (p) => p.id !== b.dataset.delprod,
+            );
+            persist();
+            renderRoute();
+          }),
+        );
+        const cancelEdit = document.getElementById("cancelEdit");
+        if (cancelEdit)
+          cancelEdit.addEventListener("click", () => {
+            state.adminEditId = null;
+            renderRoute();
+          });
+        // orders status
+        app.querySelectorAll("[data-orderstatus]").forEach((s) =>
+          s.addEventListener("change", () => {
+            const o = state.orders.find(
+              (o) => o.num === Number(s.dataset.orderstatus),
+            );
+            if (o) o.status = s.value;
+            persist();
+          }),
+        );
+        // reviews
+        app.querySelectorAll("[data-delreview]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.reviews.splice(Number(b.dataset.delreview), 1);
+            persist();
+            renderRoute();
+          }),
+        );
+        // categories
+        const catForm = document.getElementById("catForm");
+        if (catForm)
+          catForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const fd = new FormData(catForm);
+            state.categories.push({
+              id: fd.get("id"),
+              fr: fd.get("fr"),
+              ar: fd.get("ar") || fd.get("fr"),
+              en: fd.get("en") || fd.get("fr"),
+            });
+            persist();
+            renderRoute();
+          });
+        app.querySelectorAll("[data-delcat]").forEach((b) =>
+          b.addEventListener("click", () => {
+            state.categories = state.categories.filter(
+              (c) => c.id !== b.dataset.delcat,
+            );
+            persist();
+            renderRoute();
+          }),
+        );
+        // admin reset
+        const rst = document.getElementById("adminReset");
+        if (rst)
+          rst.addEventListener("click", () => {
+            state.products = JSON.parse(JSON.stringify(PRODUCTS_SEED));
+            state.categories = JSON.parse(JSON.stringify(CATS));
+            state.reviews = JSON.parse(JSON.stringify(REVIEWS_SEED));
+            state.orders = [];
+            persist();
+            renderRoute();
+          });
+      }
+
+      /* ===== hero transparent ===== */
+      function updateHeader() {
+        const h = document.querySelector("header.site");
+        document.documentElement.style.setProperty(
+          "--header-h",
+          h.offsetHeight + "px",
+        );
+        const onHome = state.route === "home";
+        document.body.classList.toggle("home-page", onHome);
+        h.classList.toggle("transparent", onHome && window.scrollY < 40);
+      }
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      window.addEventListener("resize", updateHeader);
+
+      /* ============================= INIT ============================= */
+      (function init() {
+        const p = parseHash();
+        state.route = p.route;
+        state.params = p.params;
+        renderRoute();
+      })();
+    </script>
+  </body>
+</html>
